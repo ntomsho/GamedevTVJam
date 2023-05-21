@@ -12,8 +12,8 @@ public class TopDownCamera : MonoBehaviour
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+
+
 
     }
     void Update()
@@ -31,6 +31,7 @@ public class TopDownCamera : MonoBehaviour
         newPosition.z = Mathf.Clamp(newPosition.z , -yLimit , yLimit);
 
         transform.position = newPosition;
-
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 }
