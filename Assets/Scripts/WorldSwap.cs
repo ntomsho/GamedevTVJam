@@ -12,6 +12,7 @@ public class WorldSwap : MonoBehaviour
     [SerializeField] List<Renderer> renderers;
     [SerializeField] List<Material> natureWorldMaterials;
     [SerializeField] List<Material> techWorldMaterials;
+    [SerializeField] float materialChangeDuration = 2f;
     [SerializeField] Volume volume;
     UnityEngine.Rendering.Universal.Bloom bloom;
     List<DualObject> dualObjects = new List<DualObject>();
@@ -45,7 +46,7 @@ public class WorldSwap : MonoBehaviour
         {
             bloom.threshold.value -= 0.01f;
             bloom.intensity.value += 0.1f;
-            yield return new WaitForFixedUpdate();
+            yield return null;
         }
         
         yield return new WaitForSeconds(1f);
@@ -54,8 +55,20 @@ public class WorldSwap : MonoBehaviour
         {
             bloom.threshold.value += 0.01f;
             bloom.intensity.value -= 0.1f;
-            yield return new WaitForFixedUpdate();
+            yield return null;
         }
+    }
+
+    IEnumerator HandleMaterialLerp(Material material1, Material material2, Renderer renderer)
+    {
+        float timeElapsed = 0;
+        while (timeElapsed < materialChangeDuration)
+        {
+            renderer.material.Lerp(material1, material2, timeElapsed / materialChangeDuration);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+        renderer.material = material2;
     }
 
     void SwapMeshRendererMaterials()
@@ -70,8 +83,7 @@ public class WorldSwap : MonoBehaviour
                 Debug.Log($"Error: Texture {renderer.material} not found");
                 return;
             }
-            // TODO: Turn this into a crossfade effect
-            Debug.Log(renderer.material);
+            StartCoroutine(HandleMaterialLerp(oldList[meshIndex], newList[meshIndex], renderer));
         }
     }
 
@@ -97,5 +109,11 @@ public class WorldSwap : MonoBehaviour
             Debug.Log("Swap started");
             SwapWorld();
         }
+
+        // // float lerp = Mathf.PingPong(Time.time, materialChangeDuration) / materialChangeDuration;
+        // foreach (Renderer renderer in renderers)
+        // {
+        //     renderer.material.Lerp(natureWorldMaterials[0], techWorldMaterials[0], Time.deltaTime * materialChangeDuration);
+        // }
     }
 }

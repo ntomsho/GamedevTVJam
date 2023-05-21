@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -585,8 +585,7 @@ Transform:
   m_LocalPosition: {x: 1.2, y: 7.29, z: -18.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 563332165}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 32.892, y: 0, z: 0}
@@ -2483,6 +2482,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80d15b5f5e597704d934d0d4c46b9e6c, type: 2}
   techWorldMaterials:
   - {fileID: 2100000, guid: fde3082bef506b246a18e212ae1a3d9d, type: 2}
+  materialChangeDuration: 2
   volume: {fileID: 832575518}
 --- !u!4 &2056620338
 Transform:
