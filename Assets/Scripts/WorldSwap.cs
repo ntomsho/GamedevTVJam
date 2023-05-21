@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.PostProcessing;
 
 public class WorldSwap : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class WorldSwap : MonoBehaviour
     [SerializeField] List<Renderer> renderers;
     [SerializeField] List<Material> natureWorldMaterials;
     [SerializeField] List<Material> techWorldMaterials;
+    [SerializeField] Volume volume;
+    UnityEngine.Rendering.Universal.Bloom bloom;
     List<DualObject> dualObjects = new List<DualObject>();
 
     void Awake()
@@ -22,17 +26,36 @@ public class WorldSwap : MonoBehaviour
         }
         Instance = this;
     }
+    
+    void Start()
+    {
+        volume.profile.TryGet(out bloom);
+    }
 
     public void SwapWorld()
     {
         isInNatureWorld = !isInNatureWorld;
-        CreateTransitionOverlay();
+        StartCoroutine(HandleBloom());
         SwapMeshRendererMaterials();
     }
 
-    void CreateTransitionOverlay()
+    IEnumerator HandleBloom()
     {
-        // TODO: Implement transition effect
+        while (bloom.threshold.value > 0)
+        {
+            bloom.threshold.value -= 0.01f;
+            bloom.intensity.value += 0.1f;
+            yield return new WaitForFixedUpdate();
+        }
+        
+        yield return new WaitForSeconds(1f);
+
+        while (bloom.threshold.value < 1f)
+        {
+            bloom.threshold.value += 0.01f;
+            bloom.intensity.value -= 0.1f;
+            yield return new WaitForFixedUpdate();
+        }
     }
 
     void SwapMeshRendererMaterials()
@@ -71,6 +94,7 @@ public class WorldSwap : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            Debug.Log("Swap started");
             SwapWorld();
         }
     }
