@@ -12,10 +12,12 @@ public class WorldSwap : MonoBehaviour
     [SerializeField] List<Renderer> renderers;
     [SerializeField] List<Material> natureWorldMaterials;
     [SerializeField] List<Material> techWorldMaterials;
-    [SerializeField] float materialChangeDuration = 2f;
+    [SerializeField] float materialChangeDuration = 1.5f;
     [SerializeField] Volume volume;
     UnityEngine.Rendering.Universal.Bloom bloom;
     List<DualObject> dualObjects = new List<DualObject>();
+
+    [SerializeField] DualObject testDualObject;
 
     void Awake()
     {
@@ -26,6 +28,9 @@ public class WorldSwap : MonoBehaviour
             return;
         }
         Instance = this;
+
+        AddToDualObjectsList(testDualObject);
+        Debug.Log(dualObjects[0]);
     }
     
     void Start()
@@ -38,6 +43,7 @@ public class WorldSwap : MonoBehaviour
         isInNatureWorld = !isInNatureWorld;
         StartCoroutine(HandleBloom());
         SwapMeshRendererMaterials();
+        SwapDualObjects();
     }
 
     IEnumerator HandleBloom()
@@ -87,6 +93,14 @@ public class WorldSwap : MonoBehaviour
         }
     }
 
+    void SwapDualObjects()
+    {
+        foreach (DualObject dualObject in dualObjects)
+        {
+            dualObject.SwapObjectOpacity(materialChangeDuration);
+        }
+    }
+
     public void AddToDualObjectsList(DualObject newObject)
     {
         dualObjects.Add(newObject);
@@ -109,11 +123,5 @@ public class WorldSwap : MonoBehaviour
             Debug.Log("Swap started");
             SwapWorld();
         }
-
-        // // float lerp = Mathf.PingPong(Time.time, materialChangeDuration) / materialChangeDuration;
-        // foreach (Renderer renderer in renderers)
-        // {
-        //     renderer.material.Lerp(natureWorldMaterials[0], techWorldMaterials[0], Time.deltaTime * materialChangeDuration);
-        // }
     }
 }
