@@ -11,7 +11,8 @@ public class ResourcePickup : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.transform.name == "PickupRadius" && !pickedUp)
+        Debug.Log(collision.transform.name);
+        if (collision.transform.name == "Player" && !pickedUp) // TODO: Update this to final transform name for player object
         {
             pickedUp = true;
             StartCoroutine(TweenToPlayer(collision.transform));
@@ -29,5 +30,6 @@ public class ResourcePickup : MonoBehaviour
             yield return null;
         }
         playerTransform.gameObject.GetComponent<Inventory>().AddResource(resourceType, resourceValue);
+        Destroy(gameObject);
     }
 }
