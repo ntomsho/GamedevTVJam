@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 6695015246442959178}
   - component: {fileID: 3105278532079106692}
   - component: {fileID: 5657030303041688397}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlaceholderNature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 5332248050688716620}
   - component: {fileID: 7036149882994483177}
   - component: {fileID: 3213743582603047826}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlaceholderTech
   m_TagString: Untagged
   m_Icon: {fileID: 0}
