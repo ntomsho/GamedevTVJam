@@ -95,4 +95,11 @@ public class DualObject : MonoBehaviour
     {
         Debug.Log($"nature: {natureWorldRenderer.material.color.a}, tech: {techWorldRenderer.material.color.a}");
     }
+
+    public void DestroyDualObject()
+    {
+        // Manage changes to harmony;
+        // Play destroy animation;
+        Destroy(gameObject);
+    }
 }
