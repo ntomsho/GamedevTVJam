@@ -11,12 +11,17 @@ public class PowerPylon : IInteractable, IDualObjectChild
     public event EventHandler OnPylonDestroyed;
     public void Interact(CharacterInteraction character)
     {
-        
+        return; // Has no interaction
+    }
+
+    public float GetTimeToInteract()
+    {
+        return 0;
     }
 
     public void SetHighlight(bool value)
     {
-        
+        //TODO: Get an object highlight shader
     }
 
     public Renderer GetRenderer()
