@@ -9,7 +9,4 @@ public interface IInteractable
 
     // Highlight object and generate info popup when moused over;
     public void SetHighlight(bool value);
-
-    // Return the object's renderer for the dual object controller
-    public Renderer GetRenderer();
 }

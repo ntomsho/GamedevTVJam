@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tree : MonoBehaviour, IInteractable
+public class Tree : MonoBehaviour, IInteractable, IDualObjectChild
 {
     [SerializeField] Renderer objectRenderer;
     [SerializeField] DualObject dualObjectParent;
@@ -40,6 +40,11 @@ public class Tree : MonoBehaviour, IInteractable
             Vector3 pushVector = new Vector3(x, y, z);
         }
 
+        DestroyDualObject();
+    }
+
+    public void DestroyDualObject()
+    {
         dualObjectParent.DestroyDualObject();
     }
 }
