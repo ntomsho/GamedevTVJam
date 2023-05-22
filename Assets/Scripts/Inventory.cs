@@ -54,6 +54,7 @@ public class Inventory : MonoBehaviour
 
     public void AddResource(ResourceType resourceType, int numToAdd)
     {
+        Debug.Log($"picked up {numToAdd} {resourceType}");
         switch (resourceType)
         {
             case ResourceType.Fish: numFish += numToAdd; break;

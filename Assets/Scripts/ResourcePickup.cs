@@ -4,19 +4,26 @@ using UnityEngine;
 
 public class ResourcePickup : MonoBehaviour
 {
+    [SerializeField] ParticleSystem particles;
     [SerializeField] ResourceType resourceType;
     [SerializeField] int resourceValue = 1;
     bool pickedUp;
-    float timeToTweenToPlayer = 1f;
+    float timeToTweenToPlayer = 5f;
 
     void OnTriggerEnter(Collider collision)
     {
-        Debug.Log(collision.transform.name);
-        if (collision.transform.name == "Player" && !pickedUp) // TODO: Update this to final transform name for player object
+        if (collision.transform.name == "PlayerArmature" && !pickedUp) // TODO: Update this to final transform name for player object
         {
             pickedUp = true;
+            StopParticles();
             StartCoroutine(TweenToPlayer(collision.transform));
         }
+    }
+
+    void StopParticles()
+    {
+        particles.Stop();
+        particles.transform.parent = null;
     }
 
     IEnumerator TweenToPlayer(Transform playerTransform)
@@ -27,9 +34,10 @@ public class ResourcePickup : MonoBehaviour
         {
             transform.localScale = transform.localScale * 0.99f;
             transform.position = Vector3.Lerp(transform.position, playerTransform.position, timeElapsed / timeToTweenToPlayer);
+            timeElapsed += Time.deltaTime;
             yield return null;
         }
-        playerTransform.gameObject.GetComponent<Inventory>().AddResource(resourceType, resourceValue);
+        playerTransform.parent.GetComponent<Inventory>().AddResource(resourceType, resourceValue);
         Destroy(gameObject);
     }
 }

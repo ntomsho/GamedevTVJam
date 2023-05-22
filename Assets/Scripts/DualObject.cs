@@ -46,8 +46,6 @@ public class DualObject : MonoBehaviour
         natureWorldObject.SetActive(true);
         techWorldObject.SetActive(true);
 
-        Debug.Log(GetIsInNatureWorld());
-
         Material oldMaterial = !GetIsInNatureWorld() ? natureWorldRenderer.material : techWorldRenderer.material;
         Material newMaterial = !GetIsInNatureWorld() ? techWorldRenderer.material : natureWorldRenderer.material;
 
@@ -89,11 +87,6 @@ public class DualObject : MonoBehaviour
             natureWorldRenderer.material.color = new Color(natureWorldRenderer.material.color.r, natureWorldRenderer.material.color.g, natureWorldRenderer.material.color.b, 0f);
             techWorldRenderer.material.color = new Color(techWorldRenderer.material.color.r, techWorldRenderer.material.color.g, techWorldRenderer.material.color.b, 1f);
         }
-    }
-
-    void Update()
-    {
-        Debug.Log($"nature: {natureWorldRenderer.material.color.a}, tech: {techWorldRenderer.material.color.a}");
     }
 
     public void DestroyDualObject()
