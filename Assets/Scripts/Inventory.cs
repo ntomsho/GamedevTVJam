@@ -20,6 +20,20 @@ public class Inventory : MonoBehaviour
     int numGoods;
     int numElectronics;
 
+    public static bool IsLuxuryResource(ResourceType resourceType)
+    {
+        switch (resourceType)
+        {
+            case ResourceType.Fish:
+            case ResourceType.Fruit:
+            case ResourceType.Goods:
+            case ResourceType.Electronics:
+                return true;
+            default:
+                return false;
+        }
+    }
+
     public int GetNumResource(ResourceType resourceType)
     {
         switch (resourceType)
