@@ -5,7 +5,8 @@ using UnityEngine.UI;
 public class BuildingManager : MonoBehaviour
 {
     public GameObject[] objects;
-    [SerializeField] public List<Buildable> buildables;
+    [SerializeField] public List<Buildable> buildablesList;
+    [SerializeField] private Buildable[] buildables;
 
     public Camera topDownCamera;
     public float rotateAmount;
@@ -62,7 +63,7 @@ public class BuildingManager : MonoBehaviour
 
     public void SelectObject(int index)
     {
-        pendingObject = Instantiate(objects[index] , buildablePosition , transform.rotation);
+        pendingObject = Instantiate(buildables[index].previewPrefab, buildablePosition , transform.rotation);
     }
 
     private void PlaceObject()
