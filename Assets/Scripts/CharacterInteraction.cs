@@ -10,16 +10,59 @@ public class CharacterInteraction : MonoBehaviour
     [SerializeField] LayerMask interactableLayer;
     IInteractable currentInteractable;
 
-    bool canInteract = true;
+    bool isInteracting = false;
+    float interactionTimer = 0f;
+    float timerDrainSpeed = 0.002f;
 
-    public bool GetCanInteract()
+    public bool GetIsInteracting()
     {
-        return canInteract;
+        return isInteracting;
     }
 
-    public void SetCanInteract(bool value)
+    public void SetIsInteracting(bool value)
     {
-        canInteract = value;
+        isInteracting = value;
+    }
+
+    public float GetInteractionTimer()
+    {
+        return interactionTimer;
+    }
+
+    public IInteractable GetCurrentInteractable()
+    {
+        return currentInteractable;
+    }
+
+    void HandleInput()
+    {
+        if (Input.GetMouseButtonDown(0) && currentInteractable != null)
+        {
+            isInteracting = true;
+            if (currentInteractable.GetTimeToInteract() == 0f)
+            {
+                currentInteractable.Interact(this); //validation?
+            } else
+            {
+                isInteracting = true;
+            }
+        }
+
+        if (isInteracting && Input.GetMouseButton(0))
+        {
+            interactionTimer += Time.deltaTime;
+            if (interactionTimer > currentInteractable.GetTimeToInteract())
+            {
+                currentInteractable.Interact(this); //validation?
+                isInteracting = false;
+                interactionTimer = 0f;
+            }
+        } else
+        {
+            isInteracting = false;
+            if (interactionTimer > 0f) interactionTimer -= Time.deltaTime * timerDrainSpeed;
+            else interactionTimer = 0f;
+        }
     }
 
     void Update()
@@ -27,20 +70,16 @@ public class CharacterInteraction : MonoBehaviour
         Vector3 cameraDirection = Camera.main.transform.forward;
 
         RaycastHit hit;
-        if (Physics.Raycast(playerTransform.position, cameraDirection, out hit, 5f, interactableLayer) && canInteract)
+        if (Physics.Raycast(playerTransform.position, cameraDirection, out hit, 5f, interactableLayer) && !isInteracting)
         {
             currentInteractable = hit.collider.gameObject.GetComponent<IInteractable>();
             currentInteractable.SetHighlight(true);
-
-            if (Input.GetMouseButtonDown(0) && currentInteractable != null)
-            {
-                // TODO: resource and player state validation
-                currentInteractable.Interact(this);
-            }
         } else
         {
             if (currentInteractable != null) currentInteractable.SetHighlight(false);
             currentInteractable = null;
         }
+
+        HandleInput();
     }
 }
