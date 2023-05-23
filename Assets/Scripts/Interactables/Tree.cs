@@ -6,6 +6,7 @@ public class Tree : MonoBehaviour, IInteractable, IDualObjectChild, IGrowOverTim
 {
     [SerializeField] Renderer objectRenderer;
     [SerializeField] DualObject dualObjectParent;
+    [SerializeField] Outline highlightOutline;
 
     [SerializeField] Animation playerAnimation;
     [SerializeField] GameObject woodPickupPrefab;
@@ -28,7 +29,8 @@ public class Tree : MonoBehaviour, IInteractable, IDualObjectChild, IGrowOverTim
 
     public void SetHighlight(bool value)
     {
-        //TODO: Get an object highlight shader
+        Debug.Log(value);
+        highlightOutline.enabled = value;
     }
 
     public Renderer GetRenderer()

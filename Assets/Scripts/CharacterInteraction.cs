@@ -39,10 +39,11 @@ public class CharacterInteraction : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && currentInteractable != null)
         {
             isInteracting = true;
-            if (currentInteractable.GetTimeToInteract() == 0f)
+            if (currentInteractable.GetTimeToInteract() == 0f) // Interact immediately
             {
                 currentInteractable.Interact(this); //validation?
-            } else
+                isInteracting = false;
+            } else // Start the timer
             {
                 isInteracting = true;
             }
@@ -60,8 +61,6 @@ public class CharacterInteraction : MonoBehaviour
         } else
         {
             isInteracting = false;
-            if (interactionTimer > 0f) interactionTimer -= Time.deltaTime * timerDrainSpeed;
-            else interactionTimer = 0f;
         }
     }
 
@@ -70,14 +69,16 @@ public class CharacterInteraction : MonoBehaviour
         Vector3 cameraDirection = Camera.main.transform.forward;
 
         RaycastHit hit;
-        if (Physics.Raycast(playerTransform.position, cameraDirection, out hit, 5f, interactableLayer) && !isInteracting)
+        if (Physics.Raycast(playerTransform.position, cameraDirection, out hit, 3f, interactableLayer) && !isInteracting)
         {
             currentInteractable = hit.collider.gameObject.GetComponent<IInteractable>();
             currentInteractable.SetHighlight(true);
-        } else
+        } else if (!isInteracting)
         {
             if (currentInteractable != null) currentInteractable.SetHighlight(false);
             currentInteractable = null;
+            if (interactionTimer > 0f) interactionTimer -= Time.deltaTime * timerDrainSpeed;
+            else interactionTimer = 0f;
         }
 
         HandleInput();

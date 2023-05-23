@@ -38,8 +38,9 @@ public class InteractionUI : MonoBehaviour
 
     void Update()
     {
+        // TODO: Make this not suck
         float interactionTimer = characterInteractionController.GetInteractionTimer();
-        float interactionDuration = characterInteractionController.GetCurrentInteractable().GetTimeToInteract();
+        float interactionDuration = characterInteractionController.GetCurrentInteractable() != null ? characterInteractionController.GetCurrentInteractable().GetTimeToInteract() : 0f;
         if (interactionTimer > 0f)
         {
             uiImage.enabled = true;

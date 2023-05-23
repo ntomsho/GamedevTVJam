@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -351,6 +351,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &104591338 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 654553700870904512, guid: 9f3a7732a4f5f8347b3054ce485b7fb5,
+    type: 3}
+  m_PrefabInstance: {fileID: 8358220593124158121}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &104591344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104591338}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 0.044054832, g: 0.2830189, b: 0.051083192, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &149748315
 GameObject:
   m_ObjectHideFlags: 0
@@ -1385,6 +1409,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fa6d7cd2af519f4a9cf01df40bc3478, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 32517937}
+  characterInteractionController: {fileID: 7704850669037829184}
+  uiImage: {fileID: 364268753}
+  timeToFade: 0.5
+  imageExpansion: 0.2
 --- !u!114 &364268753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1392,7 +1421,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 364268750}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -4642,6 +4671,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 104591343, guid: 9f3a7732a4f5f8347b3054ce485b7fb5, type: 3}
+      propertyPath: highlightOutline
+      value: 
+      objectReference: {fileID: 104591344}
     - target: {fileID: 1251345474917270463, guid: 9f3a7732a4f5f8347b3054ce485b7fb5,
         type: 3}
       propertyPath: m_RootOrder
