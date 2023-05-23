@@ -69,4 +69,55 @@ public class Inventory : MonoBehaviour
             case ResourceType.Electronics: numElectronics += numToAdd; break;
         }
     }
+
+    public bool CanAffordResources(Dictionary<ResourceType, int> totalCosts)
+    {
+        foreach(KeyValuePair<ResourceType, int> entry in totalCosts)
+        {
+            switch(entry.Key)
+            {
+                case ResourceType.Fish: if (numFish < entry.Value) return false; break;
+                case ResourceType.Seeds: if (numSeeds < entry.Value) return false; break;
+                case ResourceType.Gravel: if (numGravel < entry.Value) return false; break;
+                case ResourceType.Silicon: if (numSilicon < entry.Value) return false; break;
+                case ResourceType.Wood: if (numWood < entry.Value) return false; break;
+                case ResourceType.Fruit: if (numFruit < entry.Value) return false; break;
+                case ResourceType.Steel: if (numSteel < entry.Value) return false; break;
+                case ResourceType.Grain: if (numGrain < entry.Value) return false; break;
+                case ResourceType.Goods: if (numGoods < entry.Value) return false; break;
+                case ResourceType.Electronics: if (numElectronics < entry.Value) return false; break;
+            }
+        }
+        return true;
+    }
+
+    public bool TryToSpendResources(ResourceCost[] resourceCosts)
+    {
+        Dictionary<ResourceType, int> totalCosts = new Dictionary<ResourceType, int>();
+        foreach (ResourceCost cost in resourceCosts)
+        {
+            totalCosts[cost.resourceType] += cost.value;
+        }
+
+        // TODO: Improve this
+        if (!CanAffordResources(totalCosts)) return false;
+
+        foreach(KeyValuePair<ResourceType, int> entry in totalCosts)
+        {
+            switch (entry.Key)
+            {
+                case ResourceType.Fish: numFish -= entry.Value; break;
+                case ResourceType.Seeds: numSeeds -= entry.Value; break;
+                case ResourceType.Gravel: numGravel -= entry.Value; break;
+                case ResourceType.Silicon: numSilicon -= entry.Value; break;
+                case ResourceType.Wood: numWood -= entry.Value; break;
+                case ResourceType.Fruit: numFruit -= entry.Value; break;
+                case ResourceType.Steel: numSteel -= entry.Value; break;
+                case ResourceType.Grain: numGrain -= entry.Value; break;
+                case ResourceType.Goods: numGoods -= entry.Value; break;
+                case ResourceType.Electronics: numElectronics -= entry.Value; break;
+            }
+        }
+        return true;
+    }
 }
