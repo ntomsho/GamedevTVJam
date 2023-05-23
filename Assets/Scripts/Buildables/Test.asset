@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8be2c0e676f88a64ca907a6f1285535a, type: 3}
+  m_Name: Test
+  m_EditorClassIdentifier: 
+  resourceCosts: []
+  worldType: 0
+  dualObjectPrefab: {fileID: 3339202774968721535, guid: 9f3a7732a4f5f8347b3054ce485b7fb5,
+    type: 3}
+  previewPrefab: {fileID: 6021307544116912023, guid: a8c931d0091cdc547a792311807f32e2,
+    type: 3}

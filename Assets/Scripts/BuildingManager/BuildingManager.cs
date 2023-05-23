@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class BuildingManager : MonoBehaviour
 {
     public GameObject[] objects;
+    [SerializeField] public List<Buildable> buildables;
 
     public Camera topDownCamera;
     public float rotateAmount;
