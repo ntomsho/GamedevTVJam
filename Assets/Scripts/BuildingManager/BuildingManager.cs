@@ -19,10 +19,12 @@ public class BuildingManager : MonoBehaviour
     [SerializeField] private LayerMask buildableLayer;
     [SerializeField] private Toggle gridToggle;
     [SerializeField] private Material[] materials;
+    [SerializeField] private Material originalMaterial;
 
     // Start is called before the first frame update
     private void Start()
     {
+        
     }
 
     // Update is called once per frame
@@ -63,12 +65,14 @@ public class BuildingManager : MonoBehaviour
 
     public void SelectObject(int index)
     {
-        pendingObject = Instantiate(buildables[index].previewPrefab, buildablePosition , transform.rotation);
+        pendingObject = Instantiate(buildables[index].previewPrefab , buildablePosition , transform.rotation);
+        originalMaterial = pendingObject.GetComponent<Renderer>().material;
+        
     }
 
     private void PlaceObject()
     {
-        pendingObject.GetComponent<MeshRenderer>().material = materials[2];
+        originalMaterial = pendingObject.GetComponent<Renderer>().material;
         pendingObject = null;
 
     }
@@ -103,13 +107,13 @@ public class BuildingManager : MonoBehaviour
     }
     void UpdateMaterials()
     {
-        if (canPlace)
+        if (!canPlace)
         {
             pendingObject.GetComponent<MeshRenderer>().material = materials[0];
         }
         else
         {
-            pendingObject.GetComponent<MeshRenderer>().material = materials[1];
+            pendingObject.GetComponent<MeshRenderer>().material = originalMaterial;
         }
     }
 }

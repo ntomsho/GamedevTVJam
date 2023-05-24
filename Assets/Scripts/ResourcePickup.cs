@@ -38,6 +38,7 @@ public class ResourcePickup : MonoBehaviour
             yield return null;
         }
         playerTransform.parent.GetComponent<Inventory>().AddResource(resourceType, resourceValue);
-        Destroy(gameObject);
+        Debug.Log($"picked up {resourceValue} {resourceType}");
+        
     }
 }
