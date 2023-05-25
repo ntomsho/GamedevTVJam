@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-
+            SetBuildMode(!gameIsInBuildMode);
         }
     }
 
@@ -84,6 +84,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         Cursor.visible = false;
         gameIsPaused = false;
+        SetCursorLock();
     }
 
     void Pause()
@@ -93,11 +94,20 @@ public class GameManager : MonoBehaviour
         //crosshair.SetActive(false);
         Time.timeScale = 0f;
         gameIsPaused = true;
+        SetCursorLock();
     }
 
     void SetBuildMode(bool value)
     {
         gameIsInBuildMode = !gameIsInBuildMode;
         OnBuildModeChanged?.Invoke(this, gameIsInBuildMode);
+        SetCursorLock();
+    }
+
+    void SetCursorLock()
+    {
+        bool cursorIsUnlocked = (gameIsInBuildMode || gameIsPaused);
+        Cursor.visible = cursorIsUnlocked;
+        Cursor.lockState = cursorIsUnlocked ? CursorLockMode.None : CursorLockMode.Locked;
     }
 }

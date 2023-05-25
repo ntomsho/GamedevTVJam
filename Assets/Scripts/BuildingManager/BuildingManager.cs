@@ -4,16 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 public class BuildingManager : MonoBehaviour
 {
+    [SerializeField] Inventory playerInventory;
     public GameObject[] objects;
-    [SerializeField] public List<Buildable> buildablesList;
-    [SerializeField] private Buildable[] buildables;
+    [SerializeField] public List<Buildable> buildablesListNature;
+    [SerializeField] public List<Buildable> buildablesListTech;
 
     public Camera topDownCamera;
     public float rotateAmount;
     public float gridSize;
     public bool canPlace = true;
     private bool gridOn = true;
+
+    //TODO: Make these two private
+    public Buildable pendingBuildable;
     public GameObject pendingObject;
+
     private RaycastHit hit;
     private Vector3 buildablePosition;
     [SerializeField] private LayerMask buildableLayer;
@@ -40,14 +45,17 @@ public class BuildingManager : MonoBehaviour
                     RoundToNearestGrid(buildablePosition.z));
             }
             else { pendingObject.transform.position = buildablePosition; }
+            
             if (Input.GetMouseButtonDown(0)&&canPlace)
             {
                 PlaceObject();
             }
+            
             if (Input.GetKeyDown(KeyCode.R))
             {
                 RotateObject();
             }
+            
             UpdateMaterials();
         }
 
@@ -65,17 +73,26 @@ public class BuildingManager : MonoBehaviour
 
     public void SelectObject(int index)
     {
-        pendingObject = Instantiate(buildables[index].previewPrefab , buildablePosition , transform.rotation);
+        pendingBuildable = WorldSwap.Instance.GetIsInNatureWorld() ? buildablesListNature[index] : buildablesListTech[index];
+        pendingObject = Instantiate(pendingBuildable.previewPrefab, buildablePosition, transform.rotation);
         originalMaterial = pendingObject.GetComponent<Renderer>().material;
-        
+        // SetSelected Event
     }
 
     private void PlaceObject()
     {
-        originalMaterial = pendingObject.GetComponent<Renderer>().material;
-        pendingObject = null;
-
+        if (pendingBuildable.Build(pendingObject.transform.position, pendingObject.transform.rotation, playerInventory))
+        {
+            originalMaterial = pendingObject.GetComponent<Renderer>().material;
+            Destroy(pendingObject);
+            pendingObject = null;
+            pendingBuildable = null;
+        } else
+        {
+            //Negative feedback
+        }
     }
+
     public void ToggleGrid()
     {
         if (gridToggle.isOn)

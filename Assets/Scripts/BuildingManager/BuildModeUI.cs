@@ -32,18 +32,18 @@ public class BuildModeUI : MonoBehaviour
     {
         if (isInNatureWorld)
         {
-            natureCanvasGroup.enabled = true;
-            techCanvasGroup.enabled = false;
+            natureCanvasGroup.alpha = 1;
+            techCanvasGroup.alpha = 0;
         } else
         {
-            natureCanvasGroup.enabled = false;
-            techCanvasGroup.enabled = true;
+            natureCanvasGroup.alpha = 0;
+            techCanvasGroup.alpha = 1;
         }
     }
 
     void ClearUI()
     {
-        natureCanvasGroup.enabled = false;
-        techCanvasGroup.enabled = false;
+        natureCanvasGroup.alpha = 0;
+        techCanvasGroup.alpha = 0;
     }
 }
