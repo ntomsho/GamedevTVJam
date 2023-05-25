@@ -218,17 +218,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ac9b24d872c6974d94879dde5035dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInventory: {fileID: 0}
   objects:
   - {fileID: 3004587132175165240, guid: 5528669c5716c094787e828dbd544370, type: 3}
   - {fileID: 7314558465275046965, guid: 8246632e9e080fd4aab885c12aeca30a, type: 3}
   - {fileID: 6021307544116912023, guid: a8c931d0091cdc547a792311807f32e2, type: 3}
-  buildablesList: []
-  buildables:
-  - {fileID: 11400000, guid: 79bc0e055e144fb46b9df72284a007eb, type: 2}
+  buildablesListNature: []
+  buildablesListTech: []
   topDownCamera: {fileID: 290476317}
   rotateAmount: 45
   gridSize: 0.5
   canPlace: 1
+  pendingBuildable: {fileID: 0}
   pendingObject: {fileID: 0}
   buildableLayer:
     serializedVersion: 2
@@ -5040,7 +5041,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
