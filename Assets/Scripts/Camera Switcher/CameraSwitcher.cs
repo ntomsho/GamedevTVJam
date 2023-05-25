@@ -23,7 +23,7 @@ public class CameraSwitcher : MonoBehaviour
     {
         // playerCamera.enabled = !value;
         // topDowncamera.enabled = value;
-        playerVCam.m_Priority = value ? 5 : 10;
+        playerVCam.m_Priority = value ? 5 : 11;
 
         player.SetActive(!value);
         topDownCamera.SetActive(value);
