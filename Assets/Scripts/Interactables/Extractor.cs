@@ -10,10 +10,11 @@ public class Extractor : MonoBehaviour, IInteractable, IDualObjectChild, IGrowOv
 
     [SerializeField] Animation playerAnimation;
     [SerializeField] GameObject steelPickupPrefab;
-    [SerializeField] float interactDuration = 2f;
-    [SerializeField] float timeToGenerateSteel = 15f;
+    [SerializeField] float interactDuration = 1f;
+    [SerializeField] float timeToGenerateSteel = 20f;
     [SerializeField] int maxAmountOfSteel = 5;
     int amountOfSteel = 0;
+    float growthTimer = 0f;
     WorldType worldType = WorldType.Technology;
 
     public void Interact(CharacterInteraction character)
@@ -60,11 +61,26 @@ public class Extractor : MonoBehaviour, IInteractable, IDualObjectChild, IGrowOv
 
     public void Grow()
     {
-        if (amountOfSteel < maxAmountOfSteel) amountOfSteel++;
+        amountOfSteel++;
+        growthTimer = 0f;
     }
 
     public void DestroyDualObject()
     {
         dualObjectParent.DestroyDualObject();
+    }
+
+    public bool GetIsGrown()
+    {
+        return amountOfSteel > 0;
+    }
+
+    void Update()
+    {
+        if (amountOfSteel < maxAmountOfSteel)
+        {
+            growthTimer += Time.deltaTime;
+            if (growthTimer >= timeToGenerateSteel) Grow();
+        }
     }
 }

@@ -12,8 +12,9 @@ public class Tree : MonoBehaviour, IInteractable, IDualObjectChild, IGrowOverTim
     [SerializeField] GameObject woodPickupPrefab;
     [SerializeField] float interactDuration = 2f;
     [SerializeField] float timeToGrow = 30f;
-    bool isGrown = false;
-    int numWoodToGive = 3;
+    [SerializeField] int maxWoodToGive = 3;
+    float growthTimer = 0f;
+    int numWoodToGive = 0;
     float woodPickupPopForce = 50f;
     WorldType worldType = WorldType.Nature;
 
@@ -40,6 +41,7 @@ public class Tree : MonoBehaviour, IInteractable, IDualObjectChild, IGrowOverTim
 
     void Chop()
     {
+        if (GetIsGrown())
         for (int i = 0; i < numWoodToGive; i++)
         {
             GameObject woodPickup = Instantiate(woodPickupPrefab, transform.position, Quaternion.identity);
@@ -66,17 +68,27 @@ public class Tree : MonoBehaviour, IInteractable, IDualObjectChild, IGrowOverTim
 
     public bool GetIsGrown()
     {
-        return isGrown;
+        return numWoodToGive > 0;
     }
 
     public void Grow()
     {
         // Change model/scale
-        isGrown = true;
+        numWoodToGive++;
+        growthTimer = 0f;
     }
 
     public void DestroyDualObject()
     {
         dualObjectParent.DestroyDualObject();
+    }
+
+    void Update()
+    {
+        if (numWoodToGive < maxWoodToGive)
+        {
+            growthTimer += Time.deltaTime;
+            if (growthTimer >= timeToGrow) Grow();
+        }
     }
 }
