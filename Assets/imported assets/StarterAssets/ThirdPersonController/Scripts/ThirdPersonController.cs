@@ -156,6 +156,7 @@ namespace StarterAssets
         {
             _hasAnimator = TryGetComponent(out _animator);
 
+            if (GameManager.Instance.gameIsPaused || GameManager.Instance.gameIsInBuildMode || WorldSwap.Instance.GetIsSwapInProgress()) return;
             JumpAndGravity();
             GroundedCheck();
             Move();

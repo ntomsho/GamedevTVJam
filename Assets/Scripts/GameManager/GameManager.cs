@@ -16,13 +16,30 @@ public struct HarmonyPair
 
 public class GameManager : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
+    public static GameManager Instance { get; private set; }
+
+
+
+    public bool gameIsPaused = false;
+    public bool gameIsInBuildMode = false;
     public GameObject pauseMenuUI;
     public event EventHandler<HarmonyPair> OnHarmonyChanged;
+    public event EventHandler<bool> OnBuildModeChanged;
     public int natureHarmony;
     public int techHarmony;
 
     //public GameObject crosshair;
+
+    void Awake()
+    {
+        if (Instance != null)
+        {
+            Debug.LogError("More than one GameManager - " + transform + " - " + Instance);
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
     
     // Start is called before the first frame update
     void Start()
@@ -43,7 +60,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (GameIsPaused)
+            if (gameIsPaused)
             {
 
                 Resume();
@@ -53,26 +70,34 @@ public class GameManager : MonoBehaviour
                 Pause();
             }
         }
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+
+        }
     }
-    public void Resume()
+
+    void Resume()
     {
         pauseMenuUI.SetActive(false);
 
         //crosshair.SetActive(true);
         Time.timeScale = 1f;
         Cursor.visible = false;
-        GameIsPaused = false;
-
-
+        gameIsPaused = false;
     }
-    public void Pause()
+
+    void Pause()
     {
         pauseMenuUI.SetActive(true);
         Cursor.visible = true;
         //crosshair.SetActive(false);
         Time.timeScale = 0f;
-        GameIsPaused = true;
+        gameIsPaused = true;
+    }
 
-
+    void SetBuildMode(bool value)
+    {
+        gameIsInBuildMode = !gameIsInBuildMode;
+        OnBuildModeChanged?.Invoke(this, gameIsInBuildMode);
     }
 }

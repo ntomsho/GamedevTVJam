@@ -8,6 +8,7 @@ public class WorldSwap : MonoBehaviour
 {
     public static WorldSwap Instance { get; private set; }
 
+    bool swapInProgress;
     bool isInNatureWorld = true;
     [SerializeField] List<Renderer> renderers;
     [SerializeField] List<Material> natureWorldMaterials;
@@ -41,6 +42,7 @@ public class WorldSwap : MonoBehaviour
     public void SwapWorld()
     {
         isInNatureWorld = !isInNatureWorld;
+        swapInProgress = true;
         StartCoroutine(HandleBloom());
         SwapMeshRendererMaterials();
         SwapDualObjects();
@@ -63,6 +65,7 @@ public class WorldSwap : MonoBehaviour
             bloom.intensity.value -= 0.1f;
             yield return null;
         }
+        swapInProgress = false;
     }
 
     IEnumerator HandleMaterialLerp(Material material1, Material material2, Renderer renderer)
@@ -114,6 +117,11 @@ public class WorldSwap : MonoBehaviour
     public bool GetIsInNatureWorld()
     {
         return isInNatureWorld;
+    }
+
+    public bool GetIsSwapInProgress()
+    {
+        return swapInProgress;
     }
 
     void Update()

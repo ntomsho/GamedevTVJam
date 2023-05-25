@@ -6,7 +6,6 @@ public class CameraSwitcher : MonoBehaviour
 {
     public GameObject player;
     public GameObject topDownCamera;
-    public GameObject buildingUI;
     public Camera playerCamera;
     public Camera topDowncamera;
     // Start is called before the first frame update
@@ -14,26 +13,16 @@ public class CameraSwitcher : MonoBehaviour
     {
         playerCamera.enabled = true;
         topDowncamera.enabled = false;
+
+        GameManager.Instance.OnBuildModeChanged += UpdateBuildMode;
     }
 
-    void Update()
+    void UpdateBuildMode(object sender, bool value)
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            playerCamera.enabled = !playerCamera.enabled;
-            topDowncamera.enabled = !topDowncamera.enabled;
-        }
-        if (topDowncamera.enabled)
-        {
-            player.SetActive(false);
-            topDownCamera.SetActive(true);
-            buildingUI.SetActive(true);
-        }
-        else
-        {
-            player.SetActive(true);
-            topDownCamera.SetActive(false);
-            buildingUI.SetActive(false);
-        }
+        playerCamera.enabled = !value;
+        topDowncamera.enabled = value;
+
+        player.SetActive(!value);
+        topDownCamera.SetActive(value);
     }
 }

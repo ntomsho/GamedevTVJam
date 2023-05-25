@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +5,6 @@ using TMPro;
 
 public class HarmonyUI : MonoBehaviour
 {
-    [SerializeField] GameManager gameManager;
     [SerializeField] TextMeshProUGUI natureHarmonyCounter;
     [SerializeField] TextMeshProUGUI techHarmonyCounter;
     [SerializeField] TextMeshProUGUI totalHarmonyCounter;
@@ -21,7 +19,7 @@ public class HarmonyUI : MonoBehaviour
 
     void Start()
     {
-        gameManager.OnHarmonyChanged += UpdateHarmonyValues;
+        GameManager.Instance.OnHarmonyChanged += UpdateHarmonyValues;
     }
 
     void UpdateHarmonyValues(object sender, HarmonyPair harmonyPair)
