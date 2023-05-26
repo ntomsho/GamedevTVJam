@@ -2,15 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tree : MonoBehaviour, IInteractable, IDualObjectChild, IGrowOverTime
+public class Tree : BaseInteractable, IInteractable, IDualObjectChild, IGrowOverTime
 {
     [SerializeField] Renderer objectRenderer;
     [SerializeField] DualObject dualObjectParent;
-    [SerializeField] Outline highlightOutline;
 
     [SerializeField] Animation playerAnimation;
     [SerializeField] GameObject woodPickupPrefab;
-    [SerializeField] float interactDuration = 2f;
     [SerializeField] float timeToGrow = 30f;
     [SerializeField] int maxWoodToGive = 3;
     float growthTimer = 0f;
@@ -18,21 +16,10 @@ public class Tree : MonoBehaviour, IInteractable, IDualObjectChild, IGrowOverTim
     float woodPickupPopForce = 50f;
     WorldType worldType = WorldType.Nature;
 
-    public void Interact(CharacterInteraction character)
+    public override void Interact(CharacterInteraction character)
     {
         // Set player to start chopping wood, on complete call Chop() if grown
         Chop();
-    }
-
-    public float GetTimeToInteract()
-    {
-        return interactDuration;
-    }
-
-    public void SetHighlight(bool value)
-    {
-        Debug.Log(value);
-        highlightOutline.enabled = value;
     }
 
     public Renderer GetRenderer()

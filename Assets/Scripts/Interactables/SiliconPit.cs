@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SiliconPit : MonoBehaviour, IInteractable, IDualObjectChild
+public class SiliconPit : BaseInteractable, IDualObjectChild
 {
     [SerializeField] Renderer objectRenderer;
     [SerializeField] DualObject dualObjectParent;
@@ -10,24 +10,14 @@ public class SiliconPit : MonoBehaviour, IInteractable, IDualObjectChild
 
     [SerializeField] Animation playerAnimation;
     [SerializeField] GameObject siliconPickupPrefab;
-    [SerializeField] float interactDuration = 25f;
+    //[SerializeField] float interactDuration = 25f;
     WorldType worldType = WorldType.Technology;
 
-    public void Interact(CharacterInteraction character)
+    public  override void Interact(CharacterInteraction character)
     {
         Mine();
     }
 
-    public float GetTimeToInteract()
-    {
-        return interactDuration;
-    }
-
-    public void SetHighlight(bool value)
-    {
-        Debug.Log(value);
-        highlightOutline.enabled = value;
-    }
 
     public Renderer GetRenderer()
     {

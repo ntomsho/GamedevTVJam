@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerPylon : IInteractable, IDualObjectChild
+public class PowerPylon : BaseInteractable, IDualObjectChild
 {
     [SerializeField] Renderer objectRenderer;
     [SerializeField] DualObject dualObjectParent;
@@ -11,19 +11,9 @@ public class PowerPylon : IInteractable, IDualObjectChild
     public event EventHandler OnPylonDestroyed;
     WorldType worldType = WorldType.Technology;
 
-    public void Interact(CharacterInteraction character)
+    public override void Interact(CharacterInteraction character)
     {
         return; // Has no interaction
-    }
-
-    public float GetTimeToInteract()
-    {
-        return 0;
-    }
-
-    public void SetHighlight(bool value)
-    {
-        //TODO: Get an object highlight shader
     }
 
     public Renderer GetRenderer()

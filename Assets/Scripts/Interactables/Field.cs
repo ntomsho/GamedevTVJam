@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Field : MonoBehaviour, IInteractable, IDualObjectChild, IGrowOverTime
+public class Field : BaseInteractable, IDualObjectChild, IGrowOverTime
 {
     [SerializeField] Renderer objectRenderer;
     [SerializeField] DualObject dualObjectParent;
@@ -26,7 +26,7 @@ public class Field : MonoBehaviour, IInteractable, IDualObjectChild, IGrowOverTi
         CreateNewPlant();
     }
 
-    public void Interact(CharacterInteraction character)
+    public override void Interact(CharacterInteraction character)
     {
         return; //No interaction
     }
