@@ -6,15 +6,21 @@ public class Bush : BaseInteractable, IDualObjectChild, IGrowOverTime
 {
     [SerializeField] Renderer objectRenderer;
     [SerializeField] DualObject dualObjectParent;
-    [SerializeField] Outline highlightOutline;
 
     [SerializeField] Animation playerAnimation;
     [SerializeField] GameObject seedsPickupPrefab;
-    [SerializeField] float interactDuration = 2f;
     [SerializeField] float timeToGrow = 30f;
+    
     bool isGrown = false;
     float growthTimer = 0f;
     WorldType worldType = WorldType.Nature;
+    private Vector3 grownScale;
+
+    private void Start()
+    {
+        grownScale = transform.localScale;
+    }
+
 
     public override void Interact(CharacterInteraction character)
     {
@@ -64,6 +70,7 @@ public class Bush : BaseInteractable, IDualObjectChild, IGrowOverTime
     {
         if (!GetIsGrown())
         {
+            transform.localScale = grownScale * (growthTimer / timeToGrow);
             growthTimer += Time.deltaTime;
             if (growthTimer >= timeToGrow) Grow();
         }
