@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Resume()
+    public void Resume()
     {
 
         //crosshair.SetActive(true);
@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
         SetCursorLock();
     }
 
-    void Pause()
+    public void Pause()
     {
         Cursor.visible = true;
         //crosshair.SetActive(false);
