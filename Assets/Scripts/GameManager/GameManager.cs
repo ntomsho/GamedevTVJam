@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        pauseMenuUI.SetActive(false);
     }
 
     public void GainHarmony(int natureHarmonyToAdd, int techHarmonyToAdd)
@@ -62,11 +62,14 @@ public class GameManager : MonoBehaviour
         {
             if (gameIsPaused)
             {
+                pauseMenuUI.SetActive(false);
 
                 Resume();
             }
             else
             {
+                pauseMenuUI.SetActive(true);
+
                 Pause();
             }
         }
@@ -78,22 +81,26 @@ public class GameManager : MonoBehaviour
 
     void Resume()
     {
-        pauseMenuUI.SetActive(false);
 
         //crosshair.SetActive(true);
         Time.timeScale = 1f;
         Cursor.visible = false;
         gameIsPaused = false;
+
+        PlayerManager.Instance.Resume();
+
         SetCursorLock();
     }
 
     void Pause()
     {
-        pauseMenuUI.SetActive(true);
         Cursor.visible = true;
         //crosshair.SetActive(false);
         Time.timeScale = 0f;
         gameIsPaused = true;
+
+        PlayerManager.Instance.Pause();
+
         SetCursorLock();
     }
 
