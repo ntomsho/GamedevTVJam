@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bush : MonoBehaviour, IInteractable, IDualObjectChild, IGrowOverTime
+public class Bush : BaseInteractable, IDualObjectChild, IGrowOverTime
 {
     [SerializeField] Renderer objectRenderer;
     [SerializeField] DualObject dualObjectParent;
@@ -16,20 +16,9 @@ public class Bush : MonoBehaviour, IInteractable, IDualObjectChild, IGrowOverTim
     float growthTimer = 0f;
     WorldType worldType = WorldType.Nature;
 
-    public void Interact(CharacterInteraction character)
+    public override void Interact(CharacterInteraction character)
     {
         GatherSeeds();
-    }
-
-    public float GetTimeToInteract()
-    {
-        return interactDuration;
-    }
-
-    public void SetHighlight(bool value)
-    {
-        Debug.Log(value);
-        highlightOutline.enabled = value;
     }
 
     public Renderer GetRenderer()

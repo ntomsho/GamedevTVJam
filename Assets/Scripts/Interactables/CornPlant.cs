@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CornPlant : MonoBehaviour, IInteractable, IGrowOverTime
+public class CornPlant : BaseInteractable, IGrowOverTime
 {
     [SerializeField] GameObject growthLevel1;
     [SerializeField] GameObject growthLevel2;
@@ -37,21 +37,11 @@ public class CornPlant : MonoBehaviour, IInteractable, IGrowOverTime
         }
     }
 
-    public float GetTimeToInteract()
-    {
-        return timeToHarvest;
-    }
-
-    public void Interact(CharacterInteraction character)
+    public override void Interact(CharacterInteraction character)
     {
         Instantiate(grainPickupPrefab, transform.position, Quaternion.identity);
         fieldParent.DestroyPlant(this);
         Destroy(gameObject);
-    }
-
-    public void SetHighlight(bool value)
-    {
-        
     }
 
     public bool GetIsGrown()

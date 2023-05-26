@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rock : MonoBehaviour, IInteractable, IDualObjectChild, IGrowOverTime
+public class Rock : BaseInteractable, IDualObjectChild, IGrowOverTime
 {
     [SerializeField] Renderer objectRenderer;
     [SerializeField] DualObject dualObjectParent;
@@ -10,27 +10,17 @@ public class Rock : MonoBehaviour, IInteractable, IDualObjectChild, IGrowOverTim
 
     [SerializeField] Animation playerAnimation;
     [SerializeField] GameObject gravelPickupPrefab;
-    [SerializeField] float interactDuration = 2f;
     [SerializeField] float timeToGrow = 30f;
     bool isGrown = false;
     float growthTimer = 0f;
     WorldType worldType = WorldType.Technology;
 
-    public void Interact(CharacterInteraction character)
+    public override void Interact(CharacterInteraction character)
     {
         GatherGravel();
     }
 
-    public float GetTimeToInteract()
-    {
-        return interactDuration;
-    }
 
-    public void SetHighlight(bool value)
-    {
-        Debug.Log(value);
-        highlightOutline.enabled = value;
-    }
 
     public Renderer GetRenderer()
     {

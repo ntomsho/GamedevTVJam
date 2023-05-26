@@ -2,17 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using StarterAssets;
+using System;
 
 public class CharacterInteraction : MonoBehaviour
 {
     [SerializeField] Transform playerTransform;
     [SerializeField] ThirdPersonController playerController;
     [SerializeField] LayerMask interactableLayer;
-    IInteractable currentInteractable;
+
+    [SerializeField] GameObject interactableTooltipPrefab;
+    
+    private IInteractable currentInteractable;
+    private GameObject interactableTooltip;
 
     bool isInteracting = false;
     float interactionTimer = 0f;
     float timerDrainSpeed = 0.002f;
+
+    private void Awake()
+    {
+        interactableTooltip = Instantiate(interactableTooltipPrefab);
+        interactableTooltip.SetActive(false);
+    }
 
     public bool GetIsInteracting()
     {
@@ -66,21 +77,34 @@ public class CharacterInteraction : MonoBehaviour
 
     void Update()
     {
+
+        HandleInteraction();
+        HandleInput();
+    }
+
+    private void HandleInteraction()
+    {
         Vector3 cameraDirection = Camera.main.transform.forward;
+
+        Debug.DrawRay(playerTransform.position, cameraDirection * 3f, Color.red);
 
         RaycastHit hit;
         if (Physics.Raycast(playerTransform.position, cameraDirection, out hit, 3f, interactableLayer) && !isInteracting)
         {
             currentInteractable = hit.collider.gameObject.GetComponent<IInteractable>();
             currentInteractable.SetHighlight(true);
-        } else if (!isInteracting)
+
+            interactableTooltip.transform.position = hit.point;
+            interactableTooltip.SetActive(true);
+            interactableTooltip.GetComponent<InteractableTooltipUI>().SetInteractable(currentInteractable);
+        }
+        else if (!isInteracting)
         {
             if (currentInteractable != null) currentInteractable.SetHighlight(false);
             currentInteractable = null;
             if (interactionTimer > 0f) interactionTimer -= Time.deltaTime * timerDrainSpeed;
             else interactionTimer = 0f;
+            interactableTooltip.SetActive(false);
         }
-
-        HandleInput();
     }
 }

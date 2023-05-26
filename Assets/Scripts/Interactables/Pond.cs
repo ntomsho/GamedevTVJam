@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pond : MonoBehaviour, IInteractable, IDualObjectChild
+public class Pond : BaseInteractable, IDualObjectChild
 {
     [SerializeField] Renderer objectRenderer;
     [SerializeField] DualObject dualObjectParent;
@@ -10,24 +10,14 @@ public class Pond : MonoBehaviour, IInteractable, IDualObjectChild
 
     [SerializeField] Animation playerAnimation;
     [SerializeField] GameObject fishPickupPrefab;
-    [SerializeField] float interactDuration = 25f;
+    //[SerializeField] float interactDuration = 25f;
     WorldType worldType = WorldType.Nature;
 
-    public void Interact(CharacterInteraction character)
+    public override void Interact(CharacterInteraction character)
     {
         Fish();
     }
 
-    public float GetTimeToInteract()
-    {
-        return interactDuration;
-    }
-
-    public void SetHighlight(bool value)
-    {
-        Debug.Log(value);
-        highlightOutline.enabled = value;
-    }
 
     public Renderer GetRenderer()
     {

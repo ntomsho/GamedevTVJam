@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Factory : MonoBehaviour, IInteractable, IDualObjectChild, IGrowOverTime
+public class Factory : BaseInteractable, IDualObjectChild, IGrowOverTime
 {
     [SerializeField] Renderer objectRenderer;
     [SerializeField] DualObject dualObjectParent;
@@ -11,7 +11,6 @@ public class Factory : MonoBehaviour, IInteractable, IDualObjectChild, IGrowOver
     [SerializeField] Animation playerAnimation;
     [SerializeField] GameObject goodsPickupPrefab;
     [SerializeField] GameObject electronicsPickupPrefab;
-    [SerializeField] float interactDuration = 1f;
     [SerializeField] float timeToGrow = 15f;
     [SerializeField] int maxGoods = 3;
     bool isPowered = false;
@@ -29,12 +28,9 @@ public class Factory : MonoBehaviour, IInteractable, IDualObjectChild, IGrowOver
 
     // TODO: Collisions + events to determine if powered or not
 
-    public float GetTimeToInteract()
-    {
-        throw new System.NotImplementedException();
-    }
 
-    public void Interact(CharacterInteraction character)
+
+    public override void Interact(CharacterInteraction character)
     {
         if (numGoods == 0)
         {
@@ -57,11 +53,6 @@ public class Factory : MonoBehaviour, IInteractable, IDualObjectChild, IGrowOver
     void CreateElectronics()
     {
         Instantiate(electronicsPickupPrefab, transform.position, Quaternion.identity);
-    }
-
-    public void SetHighlight(bool value)
-    {
-        
     }
     
     public void DestroyDualObject()

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Extractor : MonoBehaviour, IInteractable, IDualObjectChild, IGrowOverTime
+public class Extractor : BaseInteractable, IDualObjectChild, IGrowOverTime
 {
     [SerializeField] Renderer objectRenderer;
     [SerializeField] DualObject dualObjectParent;
@@ -10,27 +10,16 @@ public class Extractor : MonoBehaviour, IInteractable, IDualObjectChild, IGrowOv
 
     [SerializeField] Animation playerAnimation;
     [SerializeField] GameObject steelPickupPrefab;
-    [SerializeField] float interactDuration = 1f;
     [SerializeField] float timeToGenerateSteel = 20f;
     [SerializeField] int maxAmountOfSteel = 5;
     int amountOfSteel = 0;
     float growthTimer = 0f;
     WorldType worldType = WorldType.Technology;
 
-    public void Interact(CharacterInteraction character)
+    public override void Interact(CharacterInteraction character)
     {
         // Set player animation, on complete call Extract()
         Extract();
-    }
-
-    public float GetTimeToInteract()
-    {
-        return interactDuration;
-    }
-
-    public void SetHighlight(bool value)
-    {
-        //TODO: Get an object highlight shader
     }
 
     public Renderer GetRenderer()
