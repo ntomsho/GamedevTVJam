@@ -31,6 +31,8 @@ public class Field : MonoBehaviour, IInteractable, IDualObjectChild, IGrowOverTi
         return; //No interaction
     }
 
+    // TODO: Collision + event to determine if close to water
+
     public Renderer GetRenderer()
     {
         return objectRenderer;
