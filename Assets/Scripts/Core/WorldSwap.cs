@@ -16,9 +16,8 @@ public class WorldSwap : MonoBehaviour
     [SerializeField] float materialChangeDuration = 1.5f;
     [SerializeField] Volume volume;
     UnityEngine.Rendering.Universal.Bloom bloom;
-    List<DualObject> dualObjects = new List<DualObject>();
 
-    [SerializeField] DualObject testDualObject;
+    List<DualObject> dualObjects = new List<DualObject>();
 
     void Awake()
     {
@@ -30,8 +29,10 @@ public class WorldSwap : MonoBehaviour
         }
         Instance = this;
 
-        AddToDualObjectsList(testDualObject);
-        Debug.Log(dualObjects[0]);
+        foreach (DualObject dualObject in FindObjectsByType<DualObject>(FindObjectsInactive.Exclude, FindObjectsSortMode.None))
+        {
+            AddToDualObjectsList(dualObject);
+        }
     }
     
     void Start()
@@ -82,17 +83,23 @@ public class WorldSwap : MonoBehaviour
 
     void SwapMeshRendererMaterials()
     {
-        foreach (Renderer renderer in renderers)
+        if (renderers.Count > 0)
         {
-            List<Material> oldList = isInNatureWorld ? techWorldMaterials : natureWorldMaterials;
-            List<Material> newList = isInNatureWorld ? natureWorldMaterials : techWorldMaterials;
-            int meshIndex = oldList.FindIndex(material => material);
-            if (meshIndex == -1)
+            foreach (Renderer renderer in renderers)
             {
-                Debug.Log($"Error: Texture {renderer.material} not found");
-                return;
+                if (renderer != null)
+                {
+                    List<Material> oldList = isInNatureWorld ? techWorldMaterials : natureWorldMaterials;
+                    List<Material> newList = isInNatureWorld ? natureWorldMaterials : techWorldMaterials;
+                    int meshIndex = oldList.FindIndex(material => material);
+                    if (meshIndex == -1)
+                    {
+                        Debug.Log($"Error: Texture {renderer.material} not found");
+                        return;
+                    }
+                    StartCoroutine(HandleMaterialLerp(oldList[meshIndex], newList[meshIndex], renderer));
+                }
             }
-            StartCoroutine(HandleMaterialLerp(oldList[meshIndex], newList[meshIndex], renderer));
         }
     }
 
@@ -126,7 +133,7 @@ public class WorldSwap : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             Debug.Log("Swap started");
             SwapWorld();

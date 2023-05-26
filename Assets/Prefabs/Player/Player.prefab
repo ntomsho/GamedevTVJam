@@ -3659,9 +3659,9 @@ SkinnedMeshRenderer:
   m_Materials:
   - {fileID: -2316586686640757316, guid: 1da31b23064e4bb48ab60c484464e925, type: 3}
   - {fileID: 4179238714940367468, guid: 1da31b23064e4bb48ab60c484464e925, type: 3}
-  - {fileID: -8006282282987584805, guid: 1da31b23064e4bb48ab60c484464e925, type: 3}
+  - {fileID: 2100000, guid: db8e1462f4f28df48ac641d8775429c9, type: 2}
   - {fileID: -7771323690311922985, guid: 1da31b23064e4bb48ab60c484464e925, type: 3}
-  - {fileID: -618222806510276875, guid: 1da31b23064e4bb48ab60c484464e925, type: 3}
+  - {fileID: 2100000, guid: a114bcfcdc74cc040b8900c5cce1baba, type: 2}
   - {fileID: 2583670677441556691, guid: 1da31b23064e4bb48ab60c484464e925, type: 3}
   - {fileID: 2486775117245802736, guid: 1da31b23064e4bb48ab60c484464e925, type: 3}
   - {fileID: -3349689084992810964, guid: 1da31b23064e4bb48ab60c484464e925, type: 3}
@@ -4506,12 +4506,12 @@ PrefabInstance:
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.20000005
+      value: 0.20000076
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.44500005
+      value: 0.4449997
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
@@ -4581,12 +4581,12 @@ PrefabInstance:
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.20000005
+      value: 0.20000076
       objectReference: {fileID: 0}
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.44500005
+      value: 0.4449997
       objectReference: {fileID: 0}
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8,
         type: 3}
