@@ -20,6 +20,7 @@ public class Extractor : MonoBehaviour, IInteractable, IDualObjectChild, IGrowOv
     public void Interact(CharacterInteraction character)
     {
         // Set player animation, on complete call Extract()
+        Extract();
     }
 
     public float GetTimeToInteract()
@@ -39,6 +40,7 @@ public class Extractor : MonoBehaviour, IInteractable, IDualObjectChild, IGrowOv
 
     void Extract()
     {
+        if (!GetIsGrown()) return;
         GameObject steelPickup = Instantiate(steelPickupPrefab, transform.position, Quaternion.identity);
         // Shoot out the object to a random location nearby;
         amountOfSteel -= 1;

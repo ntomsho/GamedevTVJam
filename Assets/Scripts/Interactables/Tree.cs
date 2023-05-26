@@ -21,6 +21,7 @@ public class Tree : MonoBehaviour, IInteractable, IDualObjectChild, IGrowOverTim
     public void Interact(CharacterInteraction character)
     {
         // Set player to start chopping wood, on complete call Chop() if grown
+        Chop();
     }
 
     public float GetTimeToInteract()
@@ -41,7 +42,7 @@ public class Tree : MonoBehaviour, IInteractable, IDualObjectChild, IGrowOverTim
 
     void Chop()
     {
-        if (GetIsGrown())
+        if (!GetIsGrown()) return;
         for (int i = 0; i < numWoodToGive; i++)
         {
             GameObject woodPickup = Instantiate(woodPickupPrefab, transform.position, Quaternion.identity);

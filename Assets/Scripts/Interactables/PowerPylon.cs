@@ -9,6 +9,8 @@ public class PowerPylon : IInteractable, IDualObjectChild
     [SerializeField] DualObject dualObjectParent;
     public event EventHandler OnPylonBuilt;
     public event EventHandler OnPylonDestroyed;
+    WorldType worldType = WorldType.Technology;
+
     public void Interact(CharacterInteraction character)
     {
         return; // Has no interaction
