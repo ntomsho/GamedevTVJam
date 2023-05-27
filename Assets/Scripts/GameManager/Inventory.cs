@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using TMPro;
 public enum ResourceType
 {
     Fish, Seeds, Gravel, Silicon, Wood, Fruit, Steel, Grain, Goods, Electronics
@@ -9,6 +10,7 @@ public enum ResourceType
 
 public class Inventory : MonoBehaviour
 {
+    public TextMeshProUGUI resources;
     int numFish;
     int numSeeds;
     int numGravel;
@@ -20,7 +22,24 @@ public class Inventory : MonoBehaviour
     int numGoods;
     int numElectronics;
 
-    public static bool IsLuxuryResource(ResourceType resourceType)
+    void Update()
+    {
+
+        resources.text = "Fish: " + GetNumResource(ResourceType.Fish).ToString() + "\n" +
+             "Seeds: " + GetNumResource(ResourceType.Seeds).ToString() + "\n" +
+             "Gravel: " + GetNumResource(ResourceType.Gravel).ToString() + "\n" +
+             "Silicon: " + GetNumResource(ResourceType.Silicon).ToString() + "\n" +
+             "Wood: " + GetNumResource(ResourceType.Wood).ToString() + "\n" +
+             "Fruit: " + GetNumResource(ResourceType.Fruit).ToString() + "\n" +
+             "Steel: " + GetNumResource(ResourceType.Steel).ToString() + "\n" +
+             "Grain: " + GetNumResource(ResourceType.Grain).ToString() + "\n" +
+             "Goods: " + GetNumResource(ResourceType.Goods).ToString() + "\n" +
+             "Electronics: " + GetNumResource(ResourceType.Electronics).ToString();
+    }
+
+
+
+public static bool IsLuxuryResource(ResourceType resourceType)
     {
         switch (resourceType)
         {
@@ -54,7 +73,7 @@ public class Inventory : MonoBehaviour
 
     public void AddResource(ResourceType resourceType, int numToAdd)
     {
-        Debug.Log($"picked up {numToAdd} {resourceType}");
+        
         switch (resourceType)
         {
             case ResourceType.Fish: numFish += numToAdd; break;
@@ -67,7 +86,9 @@ public class Inventory : MonoBehaviour
             case ResourceType.Grain: numGrain += numToAdd; break;
             case ResourceType.Goods: numGoods += numToAdd; break;
             case ResourceType.Electronics: numElectronics += numToAdd; break;
+
         }
+        
     }
 
     public bool CanAffordResources(Dictionary<ResourceType, int> totalCosts)
