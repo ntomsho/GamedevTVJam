@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbeabc88b1c8dc0489aec97ee0ae83d5, type: 3}
+  m_Name: Audio Clip Refs
+  m_EditorClassIdentifier: 
+  uiSelector:
+  - {fileID: 8300000, guid: 83bf3e9dae82a5a4b9d63d7f40affb77, type: 3}
+  - {fileID: 8300000, guid: 87b09c5f96a36ff489eac9c936df8e05, type: 3}
+  - {fileID: 8300000, guid: 7a9d1608244e8d142ace8cd4d8c2d599, type: 3}
+  - {fileID: 8300000, guid: e886235a7ad170d4db255d9f9abfcf76, type: 3}
+  - {fileID: 8300000, guid: 72eb5377fe8e72443b1b94bfcc25cbe0, type: 3}
+  - {fileID: 8300000, guid: 07995000573be074db83d73ed9a62ee6, type: 3}
+  uiCrafting:
+  - {fileID: 8300000, guid: 762041982a936754793e46a41c8c8bff, type: 3}
+  uiClick:
+  - {fileID: 8300000, guid: d8e587b1a3ae389428d1c453061b6177, type: 3}
+  - {fileID: 8300000, guid: bb3db0d457fcb434589ddb96274da761, type: 3}
+  uiAchievement:
+  - {fileID: 8300000, guid: d40d39149fec8b841b108d52119893a7, type: 3}
+  buildRemove:
+  - {fileID: 8300000, guid: 8e01388d81ba4f74a83be7e96a30ade7, type: 3}
+  - {fileID: 8300000, guid: 686363adf6e923f449b559683ed3e291, type: 3}
+  portalSwitch: {fileID: 8300000, guid: 2a74821e6ace54042bafc27e781a6961, type: 3}
+  playerCraft: {fileID: 8300000, guid: a5ae8f09eaeb8764da03a45bd7b14d8e, type: 3}
+  playerStateSwitch: {fileID: 8300000, guid: 7aa1397dafde36941abf80bcd7dcb8bf, type: 3}
+  playerFootstep:
+  - {fileID: 8300000, guid: b1b757028ae055a488b1d20f4bf0e4aa, type: 3}
+  - {fileID: 8300000, guid: 5ffbd51e06e6f6b40953c8b63bfc7b9c, type: 3}
+  - {fileID: 8300000, guid: 37568dba00ef2d049bb4e4846a75ad87, type: 3}
+  - {fileID: 8300000, guid: ef040d766601b7e4c958aa3a1061fc16, type: 3}
+  - {fileID: 8300000, guid: 65944bd16d09a6f498389a1edda86114, type: 3}
+  - {fileID: 8300000, guid: a117c0b1256bf7a498c9e52568ee1ef0, type: 3}
