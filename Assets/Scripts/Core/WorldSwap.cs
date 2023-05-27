@@ -10,9 +10,14 @@ public class WorldSwap : MonoBehaviour
 
     bool swapInProgress;
     bool isInNatureWorld = true;
+    [SerializeField] Terrain terrain;
     [SerializeField] List<Renderer> renderers;
-    [SerializeField] List<Material> natureWorldMaterials;
-    [SerializeField] List<Material> techWorldMaterials;
+    [SerializeField] Texture2D[] natureWorldTextures2D;
+    [SerializeField] Texture2D[] techWorldTextures2D;
+    [SerializeField] Texture2D[] natureWorldTexturesNormal;
+    [SerializeField] Texture2D[] techWorldTexturesNormal;
+    // [SerializeField] List<Material> natureWorldMaterials;
+    // [SerializeField] List<Material> techWorldMaterials;
     [SerializeField] float materialChangeDuration = 1.5f;
     [SerializeField] Volume volume;
     UnityEngine.Rendering.Universal.Bloom bloom;
@@ -45,7 +50,7 @@ public class WorldSwap : MonoBehaviour
         isInNatureWorld = !isInNatureWorld;
         swapInProgress = true;
         StartCoroutine(HandleBloom());
-        SwapMeshRendererMaterials();
+        SwapTerrainRendererMaterials();
         SwapDualObjects();
     }
 
@@ -81,24 +86,16 @@ public class WorldSwap : MonoBehaviour
         renderer.material = material2;
     }
 
-    void SwapMeshRendererMaterials()
+    void SwapTerrainRendererMaterials()
     {
-        if (renderers.Count > 0)
+        TerrainLayer[] terrainLayers = terrain.terrainData.terrainLayers;
+        if (terrainLayers != null)
         {
-            foreach (Renderer renderer in renderers)
+            for (int index = 0; index < terrainLayers.Length; index++)
             {
-                if (renderer != null)
-                {
-                    List<Material> oldList = isInNatureWorld ? techWorldMaterials : natureWorldMaterials;
-                    List<Material> newList = isInNatureWorld ? natureWorldMaterials : techWorldMaterials;
-                    int meshIndex = oldList.FindIndex(material => material);
-                    if (meshIndex == -1)
-                    {
-                        Debug.Log($"Error: Texture {renderer.material} not found");
-                        return;
-                    }
-                    StartCoroutine(HandleMaterialLerp(oldList[meshIndex], newList[meshIndex], renderer));
-                }
+                // TODO: Change to a crossfade
+                terrainLayers[index].diffuseTexture = GetIsInNatureWorld() ? natureWorldTextures2D[index] : techWorldTextures2D[index];
+                terrainLayers[index].normalMapTexture = GetIsInNatureWorld() ? natureWorldTexturesNormal[index] : techWorldTexturesNormal[index];
             }
         }
     }

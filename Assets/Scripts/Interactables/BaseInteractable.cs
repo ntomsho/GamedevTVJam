@@ -10,12 +10,12 @@ public abstract class BaseInteractable : MonoBehaviour, IInteractable
 
     public abstract void Interact(CharacterInteraction character);
 
-    public float GetTimeToInteract()
+    public virtual float GetTimeToInteract()
     {
         return interactableSO.TimeToInteract;
     }
 
-    public void SetHighlight(bool value)
+    public virtual void SetHighlight(bool value)
     {
         highlightOutline.enabled = value;
     }

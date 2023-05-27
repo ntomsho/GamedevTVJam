@@ -420,6 +420,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 389903954012826829, guid: d23883ec9ae71a2459228997e7c48de8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 475073069315750199, guid: d23883ec9ae71a2459228997e7c48de8,
         type: 3}
       propertyPath: m_RootOrder
@@ -560,6 +565,106 @@ PrefabInstance:
       propertyPath: volume
       value: 
       objectReference: {fileID: 832575518}
+    - target: {fileID: 7603111232157403618, guid: 4d81dab9e6f7223488ca8b7a9909a074,
+        type: 3}
+      propertyPath: terrain
+      value: 
+      objectReference: {fileID: 1787100343}
+    - target: {fileID: 7603111232157403618, guid: 4d81dab9e6f7223488ca8b7a9909a074,
+        type: 3}
+      propertyPath: techWorldTextures.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7603111232157403618, guid: 4d81dab9e6f7223488ca8b7a9909a074,
+        type: 3}
+      propertyPath: natureWorldTextures.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7603111232157403618, guid: 4d81dab9e6f7223488ca8b7a9909a074,
+        type: 3}
+      propertyPath: techWorldTextures2D.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7603111232157403618, guid: 4d81dab9e6f7223488ca8b7a9909a074,
+        type: 3}
+      propertyPath: natureWorldTextures2D.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7603111232157403618, guid: 4d81dab9e6f7223488ca8b7a9909a074,
+        type: 3}
+      propertyPath: techWorldTextures2D.Array.data[0]
+      value: 
+      objectReference: {fileID: 2800000, guid: 48c068afd10a2af469a9352793de7f99, type: 3}
+    - target: {fileID: 7603111232157403618, guid: 4d81dab9e6f7223488ca8b7a9909a074,
+        type: 3}
+      propertyPath: techWorldTextures2D.Array.data[1]
+      value: 
+      objectReference: {fileID: 2800000, guid: b900361e13e6eaa44963cb851faf3ed3, type: 3}
+    - target: {fileID: 7603111232157403618, guid: 4d81dab9e6f7223488ca8b7a9909a074,
+        type: 3}
+      propertyPath: techWorldTextures2D.Array.data[2]
+      value: 
+      objectReference: {fileID: 2800000, guid: bd7d0d213a99c4b45ab6bc5789ca5f6e, type: 3}
+    - target: {fileID: 7603111232157403618, guid: 4d81dab9e6f7223488ca8b7a9909a074,
+        type: 3}
+      propertyPath: techWorldTexturesNormal.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7603111232157403618, guid: 4d81dab9e6f7223488ca8b7a9909a074,
+        type: 3}
+      propertyPath: natureWorldTextures2D.Array.data[0]
+      value: 
+      objectReference: {fileID: 2800000, guid: b900361e13e6eaa44963cb851faf3ed3, type: 3}
+    - target: {fileID: 7603111232157403618, guid: 4d81dab9e6f7223488ca8b7a9909a074,
+        type: 3}
+      propertyPath: natureWorldTextures2D.Array.data[1]
+      value: 
+      objectReference: {fileID: 2800000, guid: bd7d0d213a99c4b45ab6bc5789ca5f6e, type: 3}
+    - target: {fileID: 7603111232157403618, guid: 4d81dab9e6f7223488ca8b7a9909a074,
+        type: 3}
+      propertyPath: natureWorldTextures2D.Array.data[2]
+      value: 
+      objectReference: {fileID: 2800000, guid: 48c068afd10a2af469a9352793de7f99, type: 3}
+    - target: {fileID: 7603111232157403618, guid: 4d81dab9e6f7223488ca8b7a9909a074,
+        type: 3}
+      propertyPath: natureWorldTextures2D.Array.data[3]
+      value: 
+      objectReference: {fileID: 2800000, guid: bd7d0d213a99c4b45ab6bc5789ca5f6e, type: 3}
+    - target: {fileID: 7603111232157403618, guid: 4d81dab9e6f7223488ca8b7a9909a074,
+        type: 3}
+      propertyPath: natureWorldTexturesNormal.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7603111232157403618, guid: 4d81dab9e6f7223488ca8b7a9909a074,
+        type: 3}
+      propertyPath: techWorldTexturesNormal.Array.data[0]
+      value: 
+      objectReference: {fileID: 2800000, guid: 8a805bd60a75fcb4da974f3312f9b04e, type: 3}
+    - target: {fileID: 7603111232157403618, guid: 4d81dab9e6f7223488ca8b7a9909a074,
+        type: 3}
+      propertyPath: techWorldTexturesNormal.Array.data[1]
+      value: 
+      objectReference: {fileID: 2800000, guid: 9e91cd5bde426714d9f0ef165f143d7c, type: 3}
+    - target: {fileID: 7603111232157403618, guid: 4d81dab9e6f7223488ca8b7a9909a074,
+        type: 3}
+      propertyPath: techWorldTexturesNormal.Array.data[2]
+      value: 
+      objectReference: {fileID: 2800000, guid: 5d1a91da624cbe3419894ef66da10da7, type: 3}
+    - target: {fileID: 7603111232157403618, guid: 4d81dab9e6f7223488ca8b7a9909a074,
+        type: 3}
+      propertyPath: natureWorldTexturesNormal.Array.data[0]
+      value: 
+      objectReference: {fileID: 2800000, guid: 9e91cd5bde426714d9f0ef165f143d7c, type: 3}
+    - target: {fileID: 7603111232157403618, guid: 4d81dab9e6f7223488ca8b7a9909a074,
+        type: 3}
+      propertyPath: natureWorldTexturesNormal.Array.data[1]
+      value: 
+      objectReference: {fileID: 2800000, guid: 5d1a91da624cbe3419894ef66da10da7, type: 3}
+    - target: {fileID: 7603111232157403618, guid: 4d81dab9e6f7223488ca8b7a9909a074,
+        type: 3}
+      propertyPath: natureWorldTexturesNormal.Array.data[2]
+      value: 
+      objectReference: {fileID: 2800000, guid: 8a805bd60a75fcb4da974f3312f9b04e, type: 3}
     - target: {fileID: 7603111232157403619, guid: 4d81dab9e6f7223488ca8b7a9909a074,
         type: 3}
       propertyPath: m_Name

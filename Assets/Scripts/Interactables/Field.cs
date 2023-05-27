@@ -68,14 +68,14 @@ public class Field : BaseInteractable, IDualObjectChild, IGrowOverTime
         return false;
     }
 
-    public float GetTimeToInteract()
+    public override float GetTimeToInteract()
     {
-        throw new System.NotImplementedException();
+        return 0;
     }
 
-    public void SetHighlight(bool value)
+    public override void SetHighlight(bool value)
     {
-        throw new System.NotImplementedException();
+        return;
     }
 
     public float GetTimeToGrow()
