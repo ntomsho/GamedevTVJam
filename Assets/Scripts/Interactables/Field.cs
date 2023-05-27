@@ -6,7 +6,6 @@ public class Field : BaseInteractable, IDualObjectChild, IGrowOverTime
 {
     [SerializeField] Renderer objectRenderer;
     [SerializeField] DualObject dualObjectParent;
-    [SerializeField] Outline highlightOutline;
 
     [SerializeField] Animation playerAnimation;
     [SerializeField] GameObject cornPlantPrefab;
@@ -53,14 +52,18 @@ public class Field : BaseInteractable, IDualObjectChild, IGrowOverTime
 
     public void Grow()
     {
-        CornPlant currentPlant = plantsList[plantsList.Count - 1];
-        if (currentPlant.GetIsGrown())
+        if (plantsList != null && plantsList.Count > 0)
         {
+            CornPlant currentPlant = plantsList[plantsList.Count - 1];
+            if (currentPlant.GetIsGrown())
+            {
 
-        } else
-        {
-            currentPlant.Grow();
-        }
+            }
+            else
+            {
+                currentPlant.Grow();
+            }
+        }   
     }
 
     public bool GetIsGrown()

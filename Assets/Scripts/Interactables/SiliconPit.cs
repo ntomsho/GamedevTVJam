@@ -6,7 +6,6 @@ public class SiliconPit : BaseInteractable, IDualObjectChild
 {
     [SerializeField] Renderer objectRenderer;
     [SerializeField] DualObject dualObjectParent;
-    [SerializeField] Outline highlightOutline;
 
     [SerializeField] Animation playerAnimation;
     [SerializeField] GameObject siliconPickupPrefab;
