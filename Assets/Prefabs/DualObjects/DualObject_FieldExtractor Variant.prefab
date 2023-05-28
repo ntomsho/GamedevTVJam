@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 732283272207919171, guid: 51b8c54fc000c3a4fbfbad15580003f8,
         type: 3}
       propertyPath: m_Name
-      value: DualObject_FieldExtractor
+      value: DualObject_FieldExtractor Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3828905133120883587, guid: 51b8c54fc000c3a4fbfbad15580003f8,
         type: 3}

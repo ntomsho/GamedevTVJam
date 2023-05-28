@@ -29,6 +29,7 @@ public class Tree : BaseInteractable, IInteractable, IDualObjectChild, IGrowOver
 
     void Chop()
     {
+        Debug.Log($"is grown? {GetIsGrown()}");
         if (!GetIsGrown()) return;
         for (int i = 0; i < numWoodToGive; i++)
         {
@@ -77,6 +78,10 @@ public class Tree : BaseInteractable, IInteractable, IDualObjectChild, IGrowOver
         {
             growthTimer += Time.deltaTime;
             if (growthTimer >= timeToGrow) Grow();
+        }
+        if (!GetIsGrown())
+        {
+            transform.localScale = Vector3.one * (growthTimer / timeToGrow);
         }
     }
 }

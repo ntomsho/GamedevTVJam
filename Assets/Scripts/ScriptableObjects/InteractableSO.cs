@@ -8,6 +8,8 @@ using UnityEngine;
 public class InteractableSO : ScriptableObject
 {
     public string Name;
+    public string IsReadyDescription;
+    public string IsNotReadyDescription;
     public string MainActionName;
     public string SecondaryActionName;
 

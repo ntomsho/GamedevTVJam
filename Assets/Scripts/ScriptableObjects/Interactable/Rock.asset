@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee18532ed0f62b04fb5a87346e20731d, type: 3}
   m_Name: Rock
   m_EditorClassIdentifier: 
-  Name: Rcok
+  Name: Rock
+  IsReadyDescription: A rock that can be broken into gravel.
+  IsNotReadyDescription: This rock is not ready to be broken yet.
   MainActionName: Collect
   SecondaryActionName: Destroy
   TimeToInteract: 2

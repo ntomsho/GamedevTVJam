@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Tree
   m_EditorClassIdentifier: 
   Name: Tree
+  IsReadyDescription: A tree made of strong wood. Good for building.
+  IsNotReadyDescription: This tree is still growing.
   MainActionName: Chop
   SecondaryActionName: Destroy
   TimeToInteract: 2

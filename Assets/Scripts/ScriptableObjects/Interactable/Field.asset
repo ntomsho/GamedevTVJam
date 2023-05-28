@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Field
   m_EditorClassIdentifier: 
   Name: Field
+  IsReadyDescription: A field for growing crops.
+  IsNotReadyDescription: The crops in this field are still growing.
   MainActionName: Harvest
   SecondaryActionName: Destroy
   TimeToInteract: 0
