@@ -168,12 +168,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ac9b24d872c6974d94879dde5035dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInventory: {fileID: 0}
+  playerInventory: {fileID: 7704850669037829185}
   objects:
   - {fileID: 3004587132175165240, guid: 5528669c5716c094787e828dbd544370, type: 3}
   - {fileID: 7314558465275046965, guid: 8246632e9e080fd4aab885c12aeca30a, type: 3}
   - {fileID: 6021307544116912023, guid: a8c931d0091cdc547a792311807f32e2, type: 3}
-  buildablesListNature: []
+  buildablesListNature:
+  - {fileID: 11400000, guid: efe803ba302a87245b617e44b105a30b, type: 2}
   buildablesListTech: []
   topDownCamera: {fileID: 290476317}
   rotateAmount: 45
@@ -1086,8 +1087,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1111,8 +1112,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2272,6 +2273,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32e71ca4c1c539b498a446bbba353dd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7704850669037829185 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8711914322949296057, guid: af96f7a5703ef3f4dacc7b224fa990fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1300360755818394616}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7704850669037829183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c141134ebf7891540964ae732528edf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &8358220593124158121
