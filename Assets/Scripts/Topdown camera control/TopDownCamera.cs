@@ -6,7 +6,9 @@ public class TopDownCamera : MonoBehaviour
 {
 
     public float xLimit = 10f;
+    public float xLimitMinus = 10f;
     public float yLimit = 10f;
+    public float yLimitMinus = 10f;
 
     public Transform map;
 
@@ -28,8 +30,8 @@ public class TopDownCamera : MonoBehaviour
         newPosition.x += horizontalInput;
         newPosition.z += verticalInput;
 
-        newPosition.x = Mathf.Clamp(newPosition.x , -xLimit , xLimit);
-        newPosition.z = Mathf.Clamp(newPosition.z , -yLimit , yLimit);
+        newPosition.x = Mathf.Clamp(newPosition.x , -xLimitMinus , xLimit);
+        newPosition.z = Mathf.Clamp(newPosition.z , -yLimitMinus , yLimit);
 
         transform.position = newPosition;
         // Cursor.visible = true;
