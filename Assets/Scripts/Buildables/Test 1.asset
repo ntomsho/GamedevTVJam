@@ -12,11 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8be2c0e676f88a64ca907a6f1285535a, type: 3}
   m_Name: Test 1
   m_EditorClassIdentifier: 
-  resourceCosts:
-  - resourceType: 0
-    value: 0
+  resourceCosts: []
   worldType: 0
-  dualObjectPrefab: {fileID: 3004587132175165240, guid: 5528669c5716c094787e828dbd544370,
+  dualObjectPrefab: {fileID: 6893103494168431247, guid: 420c228a1e3537745961af90f398c073,
     type: 3}
-  previewPrefab: {fileID: 3004587132175165240, guid: 5528669c5716c094787e828dbd544370,
+  previewPrefab: {fileID: 6893103494168431247, guid: 420c228a1e3537745961af90f398c073,
     type: 3}

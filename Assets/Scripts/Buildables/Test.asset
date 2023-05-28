@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Test
   m_EditorClassIdentifier: 
   resourceCosts: []
-  worldType: 0
-  dualObjectPrefab: {fileID: 3339202774968721535, guid: 9f3a7732a4f5f8347b3054ce485b7fb5,
+  worldType: 1
+  dualObjectPrefab: {fileID: 4151574898211658487, guid: d23883ec9ae71a2459228997e7c48de8,
     type: 3}
-  previewPrefab: {fileID: 6021307544116912023, guid: a8c931d0091cdc547a792311807f32e2,
+  previewPrefab: {fileID: 4151574898211658487, guid: d23883ec9ae71a2459228997e7c48de8,
     type: 3}

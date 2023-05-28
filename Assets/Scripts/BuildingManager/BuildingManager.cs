@@ -84,7 +84,7 @@ public class BuildingManager : MonoBehaviour
         if (pendingBuildable.Build(pendingObject.transform.position, pendingObject.transform.rotation, playerInventory))
         {
             originalMaterial = pendingObject.GetComponent<Renderer>().material;
-            Destroy(pendingObject);
+            //Destroy(pendingObject);
             pendingObject = null;
             pendingBuildable = null;
         } else
