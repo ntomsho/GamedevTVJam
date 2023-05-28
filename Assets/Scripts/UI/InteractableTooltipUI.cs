@@ -18,7 +18,6 @@ public class InteractableTooltipUI : MonoBehaviour
 
         interactableNameText.text = interactable.GetInteractableSO().Name;
         SetInteractableDescription(interactable);
-        Debug.Log(interactable.GetInteractableSO().MainActionName);
         SetMainActionText(interactable.GetInteractableSO().MainActionName);
         interactableSecondaryActionText.text = interactable.GetInteractableSO().SecondaryActionName;
     }
@@ -45,8 +44,6 @@ public class InteractableTooltipUI : MonoBehaviour
         {
             interactableMainActionText.color = Color.red;
         }
-        Debug.Log(actionText);
         interactableMainActionText.text = actionText;
-        Debug.Log(interactableMainActionText.text);
     }
 }

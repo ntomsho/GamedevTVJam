@@ -16,6 +16,8 @@ public class WorldSwap : MonoBehaviour
     [SerializeField] Texture2D[] techWorldTextures2D;
     [SerializeField] Texture2D[] natureWorldTexturesNormal;
     [SerializeField] Texture2D[] techWorldTexturesNormal;
+    [SerializeField] Material natureSkyboxMaterial;
+    [SerializeField] Material techSkyboxMaterial;
     // [SerializeField] List<Material> natureWorldMaterials;
     // [SerializeField] List<Material> techWorldMaterials;
     [SerializeField] float materialChangeDuration = 1.5f;
@@ -98,6 +100,7 @@ public class WorldSwap : MonoBehaviour
                 terrainLayers[index].normalMapTexture = GetIsInNatureWorld() ? natureWorldTexturesNormal[index] : techWorldTexturesNormal[index];
             }
         }
+        RenderSettings.skybox = GetIsInNatureWorld() ? natureSkyboxMaterial : techSkyboxMaterial;
     }
 
     void SwapDualObjects()

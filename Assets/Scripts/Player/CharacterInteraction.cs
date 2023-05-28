@@ -47,7 +47,10 @@ public class CharacterInteraction : MonoBehaviour
 
     void HandleInput()
     {
-        if (Input.GetMouseButtonDown(0) && currentInteractable != null)
+        IGrowOverTime growOverTime = currentInteractable as IGrowOverTime;
+        bool canInteract = (growOverTime == null || growOverTime.GetIsGrown());
+
+        if (Input.GetMouseButtonDown(0) && currentInteractable != null && canInteract)
         {
             isInteracting = true;
             if (currentInteractable.GetTimeToInteract() == 0f) // Interact immediately
@@ -77,7 +80,6 @@ public class CharacterInteraction : MonoBehaviour
 
     void Update()
     {
-
         HandleInteraction();
         HandleInput();
     }

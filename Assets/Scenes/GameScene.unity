@@ -742,6 +742,16 @@ PrefabInstance:
       objectReference: {fileID: 1787100343}
     - target: {fileID: 7603111232157403618, guid: 4d81dab9e6f7223488ca8b7a9909a074,
         type: 3}
+      propertyPath: techSkyboxMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 860a66ca4259b384f9ec01b687f71c3c, type: 2}
+    - target: {fileID: 7603111232157403618, guid: 4d81dab9e6f7223488ca8b7a9909a074,
+        type: 3}
+      propertyPath: natureSkyboxMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 256a19b04b1638f47893d6d66bf8371c, type: 2}
+    - target: {fileID: 7603111232157403618, guid: 4d81dab9e6f7223488ca8b7a9909a074,
+        type: 3}
       propertyPath: techWorldTextures.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -764,17 +774,17 @@ PrefabInstance:
         type: 3}
       propertyPath: techWorldTextures2D.Array.data[0]
       value: 
-      objectReference: {fileID: 2800000, guid: 48c068afd10a2af469a9352793de7f99, type: 3}
+      objectReference: {fileID: 2800000, guid: baf23df249cc3974fafd9a18167df712, type: 3}
     - target: {fileID: 7603111232157403618, guid: 4d81dab9e6f7223488ca8b7a9909a074,
         type: 3}
       propertyPath: techWorldTextures2D.Array.data[1]
       value: 
-      objectReference: {fileID: 2800000, guid: b900361e13e6eaa44963cb851faf3ed3, type: 3}
+      objectReference: {fileID: 2800000, guid: b198aa877543bae4390e4cc0e72be934, type: 3}
     - target: {fileID: 7603111232157403618, guid: 4d81dab9e6f7223488ca8b7a9909a074,
         type: 3}
       propertyPath: techWorldTextures2D.Array.data[2]
       value: 
-      objectReference: {fileID: 2800000, guid: bd7d0d213a99c4b45ab6bc5789ca5f6e, type: 3}
+      objectReference: {fileID: 2800000, guid: 2f11c4bf57fe64b4f859276390ae902d, type: 3}
     - target: {fileID: 7603111232157403618, guid: 4d81dab9e6f7223488ca8b7a9909a074,
         type: 3}
       propertyPath: techWorldTexturesNormal.Array.size
@@ -809,17 +819,17 @@ PrefabInstance:
         type: 3}
       propertyPath: techWorldTexturesNormal.Array.data[0]
       value: 
-      objectReference: {fileID: 2800000, guid: 8a805bd60a75fcb4da974f3312f9b04e, type: 3}
+      objectReference: {fileID: 2800000, guid: 89afee2ff7c99f14fb6b93db354adbc5, type: 3}
     - target: {fileID: 7603111232157403618, guid: 4d81dab9e6f7223488ca8b7a9909a074,
         type: 3}
       propertyPath: techWorldTexturesNormal.Array.data[1]
       value: 
-      objectReference: {fileID: 2800000, guid: 9e91cd5bde426714d9f0ef165f143d7c, type: 3}
+      objectReference: {fileID: 2800000, guid: 40cfe12abc15c114c9e32d8c0d5670b9, type: 3}
     - target: {fileID: 7603111232157403618, guid: 4d81dab9e6f7223488ca8b7a9909a074,
         type: 3}
       propertyPath: techWorldTexturesNormal.Array.data[2]
       value: 
-      objectReference: {fileID: 2800000, guid: 5d1a91da624cbe3419894ef66da10da7, type: 3}
+      objectReference: {fileID: 2800000, guid: e3ca3f1466bc02b4692c4d3673d16df5, type: 3}
     - target: {fileID: 7603111232157403618, guid: 4d81dab9e6f7223488ca8b7a9909a074,
         type: 3}
       propertyPath: natureWorldTexturesNormal.Array.data[0]

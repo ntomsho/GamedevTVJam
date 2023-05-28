@@ -29,7 +29,6 @@ public class Tree : BaseInteractable, IInteractable, IDualObjectChild, IGrowOver
 
     void Chop()
     {
-        Debug.Log($"is grown? {GetIsGrown()}");
         if (!GetIsGrown()) return;
         for (int i = 0; i < numWoodToGive; i++)
         {
