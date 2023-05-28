@@ -17,7 +17,7 @@ public class CharacterInteraction : MonoBehaviour
 
     bool isInteracting = false;
     float interactionTimer = 0f;
-    float timerDrainSpeed = 0.002f;
+    float timerDrainSpeed = 0.2f;
 
     private void Awake()
     {
@@ -102,9 +102,13 @@ public class CharacterInteraction : MonoBehaviour
         {
             if (currentInteractable != null) currentInteractable.SetHighlight(false);
             currentInteractable = null;
-            if (interactionTimer > 0f) interactionTimer -= Time.deltaTime * timerDrainSpeed;
-            else interactionTimer = 0f;
             interactableTooltip.SetActive(false);
+        }
+        if (!isInteracting)
+        {
+            interactionTimer = 0f;
+            // if (interactionTimer > 0f) interactionTimer -= Time.deltaTime * timerDrainSpeed;
+            // else interactionTimer = 0f;
         }
     }
 }

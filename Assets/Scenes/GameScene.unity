@@ -1407,6 +1407,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Move
       objectReference: {fileID: 0}
+    - target: {fileID: 1563306395276261946, guid: c8facf6914cffa148b383cc33f20ed92,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1563306395276261947, guid: c8facf6914cffa148b383cc33f20ed92,
         type: 3}
       propertyPath: characterInteractionController

@@ -14,7 +14,7 @@ public class InteractionUI : MonoBehaviour
 
     public void UpdateInteractionUIFill(float value, float max)
     {
-        uiImage.fillAmount = value / max;
+        uiImage.fillAmount = max != 0 ? value / max : 0f;
     }
 
     void CompleteFill()
@@ -41,17 +41,13 @@ public class InteractionUI : MonoBehaviour
         // TODO: Make this not suck
         float interactionTimer = characterInteractionController.GetInteractionTimer();
         float interactionDuration = characterInteractionController.GetCurrentInteractable() != null ? characterInteractionController.GetCurrentInteractable().GetTimeToInteract() : 0f;
-        if (interactionTimer > 0f)
-        {
-            uiImage.enabled = true;
+        // if (interactionTimer > 0f)
+        // {
             UpdateInteractionUIFill(interactionTimer, interactionDuration);
-            if (interactionTimer >= interactionDuration)
-            {
-                CompleteFill();
-            }
-        } else
-        {
-            uiImage.enabled = false;
-        }
+            // if (interactionTimer >= interactionDuration)
+            // {
+            //     CompleteFill();
+            // }
+        // }
     }
 }
