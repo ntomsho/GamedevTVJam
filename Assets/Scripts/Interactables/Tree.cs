@@ -30,6 +30,9 @@ public class Tree : BaseInteractable, IInteractable, IDualObjectChild, IGrowOver
     void Chop()
     {
         if (!GetIsGrown()) return;
+
+        SoundManager.Instance.PlayCraftSound(PlayerManager.Instance.transform.position);
+
         for (int i = 0; i < numWoodToGive; i++)
         {
             GameObject woodPickup = Instantiate(woodPickupPrefab, transform.position, Quaternion.identity);

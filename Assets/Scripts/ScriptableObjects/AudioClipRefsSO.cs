@@ -23,5 +23,9 @@ public class AudioClipRefsSO : ScriptableObject
 
     public AudioClip credits;
 
+    public AudioClip quest1;
+    public AudioClip quest2;
+    public AudioClip quest3;
+
 }
  
