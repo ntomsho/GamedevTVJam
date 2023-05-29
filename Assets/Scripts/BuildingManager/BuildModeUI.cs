@@ -21,7 +21,10 @@ public class BuildModeUI : MonoBehaviour
 
     void OnWorldSwap(object sender, EventArgs e)
     {
-        EnableUI(WorldSwap.Instance.GetIsInNatureWorld());
+        if (GameManager.Instance.gameIsInBuildMode)
+        {
+            EnableUI(WorldSwap.Instance.GetIsInNatureWorld());
+        }
     }
 
     void UpdateBuildMode(object sender, bool value)

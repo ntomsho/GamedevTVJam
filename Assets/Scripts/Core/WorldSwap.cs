@@ -21,6 +21,7 @@ public class WorldSwap : MonoBehaviour
     [SerializeField] Texture2D[] techWorldTexturesNormal;
     [SerializeField] Material natureSkyboxMaterial;
     [SerializeField] Material techSkyboxMaterial;
+    [SerializeField] MeshRenderer waterMesh;
     // [SerializeField] List<Material> natureWorldMaterials;
     // [SerializeField] List<Material> techWorldMaterials;
     [SerializeField] float materialChangeDuration = 1.5f;
@@ -105,6 +106,7 @@ public class WorldSwap : MonoBehaviour
             }
         }
         RenderSettings.skybox = GetIsInNatureWorld() ? natureSkyboxMaterial : techSkyboxMaterial;
+        waterMesh.enabled = GetIsInNatureWorld();
     }
 
     void SwapDualObjects()
