@@ -12,6 +12,7 @@ public class Factory : BaseInteractable, IDualObjectChild, IGrowOverTime
     [SerializeField] SphereCollider powerCheckCollider;
     [SerializeField] GameObject goodsPickupPrefab;
     [SerializeField] GameObject electronicsPickupPrefab;
+    [SerializeField] Transform dropLocation;
     [SerializeField] float timeToGrow = 15f;
     [SerializeField] int maxGoods = 3;
     bool isPowered = false;
@@ -67,7 +68,7 @@ public class Factory : BaseInteractable, IDualObjectChild, IGrowOverTime
     {
         SoundManager.Instance.PlayUICraftSound(PlayerManager.Instance.transform.position);
         numGoods--;
-        Instantiate(goodsPickupPrefab, transform.position, Quaternion.identity);
+        Instantiate(goodsPickupPrefab, dropLocation.position, Quaternion.identity);
     }
 
     void CreateElectronics()

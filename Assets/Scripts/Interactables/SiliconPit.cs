@@ -15,7 +15,7 @@ public class SiliconPit : BaseInteractable, IDualObjectChild
 
     public  override void Interact(CharacterInteraction character)
     {
-        Mine();
+        Mine(character.transform);
     }
 
     public override void SetHighlight(bool value)
@@ -28,9 +28,9 @@ public class SiliconPit : BaseInteractable, IDualObjectChild
         return objectRenderer;
     }
 
-    void Mine()
+    void Mine(Transform playerTransform)
     {
-        Instantiate(siliconPickupPrefab, transform.position, Quaternion.identity);
+        Instantiate(siliconPickupPrefab, SiliconDropPosition(playerTransform), Quaternion.identity);
     }
 
     Vector3 SiliconDropPosition(Transform playerTransform)

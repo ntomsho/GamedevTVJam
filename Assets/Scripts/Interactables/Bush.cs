@@ -10,6 +10,7 @@ public class Bush : BaseInteractable, IDualObjectChild, IGrowOverTime
     [SerializeField] Animation playerAnimation;
     [SerializeField] GameObject seedsPickupPrefab;
     [SerializeField] float timeToGrow = 30f;
+    [SerializeField] Transform dropLocation;
     
     bool isGrown = false;
     float growthTimer = 0f;
@@ -35,7 +36,7 @@ public class Bush : BaseInteractable, IDualObjectChild, IGrowOverTime
     void GatherSeeds()
     {
         if (!GetIsGrown()) return;
-        Instantiate(seedsPickupPrefab, transform.position, Quaternion.identity);
+        Instantiate(seedsPickupPrefab, dropLocation.position, Quaternion.identity);
         isGrown = false;
     }
 

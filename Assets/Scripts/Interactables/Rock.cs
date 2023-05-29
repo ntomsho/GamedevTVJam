@@ -10,6 +10,7 @@ public class Rock : BaseInteractable, IDualObjectChild, IGrowOverTime
     [SerializeField] Animation playerAnimation;
     [SerializeField] GameObject gravelPickupPrefab;
     [SerializeField] float timeToGrow = 30f;
+    [SerializeField] Transform dropLocation;
     bool isGrown = false;
     float growthTimer = 0f;
     WorldType worldType = WorldType.Technology;
@@ -29,7 +30,7 @@ public class Rock : BaseInteractable, IDualObjectChild, IGrowOverTime
     void GatherGravel()
     {
         if (!GetIsGrown()) return;
-        Instantiate(gravelPickupPrefab, transform.position, Quaternion.identity);
+        Instantiate(gravelPickupPrefab, dropLocation.position, Quaternion.identity);
         isGrown = false;
     }
 

@@ -11,6 +11,7 @@ public class Tree : BaseInteractable, IInteractable, IDualObjectChild, IGrowOver
     [SerializeField] GameObject woodPickupPrefab;
     [SerializeField] float timeToGrow = 30f;
     [SerializeField] int maxWoodToGive = 3;
+    [SerializeField] List<Transform> dropSpots;
     float growthTimer = 0f;
     int numWoodToGive = 0;
     float woodPickupPopForce = 50f;
@@ -35,13 +36,7 @@ public class Tree : BaseInteractable, IInteractable, IDualObjectChild, IGrowOver
 
         for (int i = 0; i < numWoodToGive; i++)
         {
-            GameObject woodPickup = Instantiate(woodPickupPrefab, transform.position, Quaternion.identity);
-            float angle = (360f / numWoodToGive) * i;
-            float x = Mathf.Cos(Mathf.Deg2Rad * angle);
-            float y = Mathf.Sin(Mathf.Deg2Rad * angle);
-            float z = 0;
-
-            Vector3 pushVector = new Vector3(x, y, z);
+            GameObject woodPickup = Instantiate(woodPickupPrefab, dropSpots[i].position, Quaternion.identity);
         }
 
         DestroyDualObject();

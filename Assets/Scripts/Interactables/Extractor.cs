@@ -12,6 +12,7 @@ public class Extractor : BaseInteractable, IDualObjectChild, IGrowOverTime
     [SerializeField] GameObject steelPickupPrefab;
     [SerializeField] float timeToGenerateSteel = 20f;
     [SerializeField] int maxAmountOfSteel = 5;
+    [SerializeField] Transform dropSpot;
     int amountOfSteel = 0;
     float growthTimer = 0f;
     WorldType worldType = WorldType.Technology;
@@ -33,7 +34,7 @@ public class Extractor : BaseInteractable, IDualObjectChild, IGrowOverTime
 
         SoundManager.Instance.PlayUICraftSound(PlayerManager.Instance.transform.position);
 
-        GameObject steelPickup = Instantiate(steelPickupPrefab, transform.position, Quaternion.identity);
+        GameObject steelPickup = Instantiate(steelPickupPrefab, dropSpot.position, Quaternion.identity);
         // Shoot out the object to a random location nearby;
         amountOfSteel -= 1;
     }

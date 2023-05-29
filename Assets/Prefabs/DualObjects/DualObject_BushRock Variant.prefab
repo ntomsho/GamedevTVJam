@@ -120,6 +120,7 @@ MonoBehaviour:
   seedsPickupPrefab: {fileID: 4887437847410736254, guid: 9c7472edf4dc4aa42acbbe0367fb51ba,
     type: 3}
   timeToGrow: 30
+  dropLocation: {fileID: 7459886336071589834}
 --- !u!114 &1828305490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,6 +139,37 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!1 &6158491648269040665
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7459886336071589834}
+  m_Layer: 0
+  m_Name: DropSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7459886336071589834
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6158491648269040665}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6963600988973771087}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &640070554
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -272,6 +304,7 @@ MonoBehaviour:
   gravelPickupPrefab: {fileID: 4887437847410736254, guid: e35018767393e694f8863e8500a09e25,
     type: 3}
   timeToGrow: 30
+  dropLocation: {fileID: 7459886336071589834}
 --- !u!114 &340756458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,3 +470,9 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!4 &6963600988973771087 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 475073069315750199, guid: d23883ec9ae71a2459228997e7c48de8,
+    type: 3}
+  m_PrefabInstance: {fileID: 7364619338809888888}
+  m_PrefabAsset: {fileID: 0}
