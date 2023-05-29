@@ -17,4 +17,4 @@ MonoBehaviour:
   IsNotReadyDescription: 
   MainActionName: Mine
   SecondaryActionName: 
-  TimeToInteract: 30
+  TimeToInteract: 5

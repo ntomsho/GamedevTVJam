@@ -6,6 +6,7 @@ public class SiliconPit : BaseInteractable, IDualObjectChild
 {
     [SerializeField] Renderer objectRenderer;
     [SerializeField] PondPit dualObjectParent;
+    [SerializeField] Transform pickupDestinationTransform;
 
     [SerializeField] Animation playerAnimation;
     [SerializeField] GameObject siliconPickupPrefab;
@@ -17,6 +18,10 @@ public class SiliconPit : BaseInteractable, IDualObjectChild
         Mine();
     }
 
+    public override void SetHighlight(bool value)
+    {
+        return;
+    }
 
     public Renderer GetRenderer()
     {
@@ -30,7 +35,9 @@ public class SiliconPit : BaseInteractable, IDualObjectChild
 
     Vector3 SiliconDropPosition(Transform playerTransform)
     {
-        return (playerTransform.position - (playerTransform.position - transform.position).normalized);
+        float x = pickupDestinationTransform.position.x + Random.Range(-0.2f, 0.2f);
+        float z = pickupDestinationTransform.position.z + Random.Range(-0.2f, 0.2f);
+        return new Vector3(x, pickupDestinationTransform.position.y, z);
     }
 
     public WorldType GetWorldType()
