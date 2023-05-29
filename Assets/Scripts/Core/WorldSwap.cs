@@ -139,7 +139,7 @@ public class WorldSwap : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Swap started");
             SwapWorld();

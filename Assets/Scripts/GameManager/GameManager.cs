@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] int harmonyGoal = 2500;
     [SerializeField] CreditsHandler creditsHandler;
     [SerializeField] GameObject inventoryObject;
+    [SerializeField] GameObject pauseTutorialObject;
     public bool gameIsPaused = false;
     public bool gameIsInBuildMode = false;
     public GameObject pauseMenuUI;
@@ -71,17 +72,19 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             if (gameIsPaused)
             {
                 pauseMenuUI.SetActive(false);
+                pauseTutorialObject.SetActive(true);
                 Resume();
                 inventoryObject.SetActive(gameIsPaused || gameIsInBuildMode);
             }
             else
             {
                 pauseMenuUI.SetActive(true);
+                pauseTutorialObject.SetActive(false);
                 Pause();
                 inventoryObject.SetActive(gameIsPaused || gameIsInBuildMode);
             }
