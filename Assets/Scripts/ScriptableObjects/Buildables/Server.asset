@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8be2c0e676f88a64ca907a6f1285535a, type: 3}
-  m_Name: Test
+  m_Name: Server
   m_EditorClassIdentifier: 
-  resourceCosts: []
+  resourceCosts:
+  - resourceType: 6
+    value: 2
   worldType: 1
-  dualObjectPrefab: {fileID: 4151574898211658487, guid: d23883ec9ae71a2459228997e7c48de8,
+  dualObjectPrefab: {fileID: 6893103494168431247, guid: b44a0a33ddc723247ae5491cc1ae4fea,
     type: 3}
-  previewPrefab: {fileID: 4151574898211658487, guid: d23883ec9ae71a2459228997e7c48de8,
+  previewPrefab: {fileID: 9219166411028550195, guid: 9dad7e736420cb24fb960a8c7c6602e4,
     type: 3}

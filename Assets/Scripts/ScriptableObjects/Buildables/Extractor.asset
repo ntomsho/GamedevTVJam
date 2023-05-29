@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8be2c0e676f88a64ca907a6f1285535a, type: 3}
+  m_Name: Extractor
+  m_EditorClassIdentifier: 
+  resourceCosts:
+  - resourceType: 2
+    value: 2
+  worldType: 1
+  dualObjectPrefab: {fileID: 7452783719479823844, guid: 23cf58acdf97f3b47b151898c07aa3d3,
+    type: 3}
+  previewPrefab: {fileID: 702318926019011098, guid: 8b4ecbc36fb04a649b1f47e068f1e99b,
+    type: 3}

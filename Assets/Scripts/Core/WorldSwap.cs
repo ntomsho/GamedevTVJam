@@ -12,6 +12,8 @@ public class WorldSwap : MonoBehaviour
 
     public static WorldSwap Instance { get; private set; }
 
+    public event EventHandler OnWorldSwap;
+
     bool swapInProgress;
     bool isInNatureWorld = true;
     [SerializeField] Terrain terrain;
@@ -22,6 +24,7 @@ public class WorldSwap : MonoBehaviour
     [SerializeField] Texture2D[] techWorldTexturesNormal;
     [SerializeField] Material natureSkyboxMaterial;
     [SerializeField] Material techSkyboxMaterial;
+    [SerializeField] MeshRenderer waterMesh;
     // [SerializeField] List<Material> natureWorldMaterials;
     // [SerializeField] List<Material> techWorldMaterials;
     [SerializeField] float materialChangeDuration = 1.5f;
@@ -58,7 +61,6 @@ public class WorldSwap : MonoBehaviour
         StartCoroutine(HandleBloom());
         SwapTerrainRendererMaterials();
         SwapDualObjects();
-
         OnWorldSwap?.Invoke(this, EventArgs.Empty);
     }
 
@@ -108,6 +110,7 @@ public class WorldSwap : MonoBehaviour
             }
         }
         RenderSettings.skybox = GetIsInNatureWorld() ? natureSkyboxMaterial : techSkyboxMaterial;
+        waterMesh.enabled = GetIsInNatureWorld();
     }
 
     void SwapDualObjects()

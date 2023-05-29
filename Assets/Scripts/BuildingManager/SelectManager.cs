@@ -18,6 +18,7 @@ public class SelectManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!GameManager.Instance.gameIsInBuildMode) return;
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = topDownCamera.ScreenPointToRay(Input.mousePosition);
@@ -39,9 +40,9 @@ public class SelectManager : MonoBehaviour
     {
         if (obj == selectObject) return;
         if (selectObject != null) Deselect();
-        Outline outline = obj.GetComponent<Outline>();
-        if (outline == null) obj.AddComponent<Outline>();
-        else outline.enabled = true;
+        // Outline outline = obj.GetComponent<Outline>();
+        // if (outline == null) obj.AddComponent<Outline>();
+        // else outline.enabled = true;
         objNameTxt.text = obj.name;
         selectObject = obj;
         selectUI.SetActive(true);

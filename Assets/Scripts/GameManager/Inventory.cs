@@ -12,7 +12,7 @@ public class Inventory : MonoBehaviour
 {
     public TextMeshProUGUI resources;
     int numFish;
-    int numSeeds;
+    int numSeeds = 3;
     int numGravel;
     int numSilicon;
     int numWood;
@@ -22,9 +22,8 @@ public class Inventory : MonoBehaviour
     int numGoods;
     int numElectronics;
 
-    void Update()
+    void UpdateUI()
     {
-
         resources.text = "Fish: " + GetNumResource(ResourceType.Fish).ToString() + "\n" +
              "Seeds: " + GetNumResource(ResourceType.Seeds).ToString() + "\n" +
              "Gravel: " + GetNumResource(ResourceType.Gravel).ToString() + "\n" +
@@ -37,9 +36,7 @@ public class Inventory : MonoBehaviour
              "Electronics: " + GetNumResource(ResourceType.Electronics).ToString();
     }
 
-
-
-public static bool IsLuxuryResource(ResourceType resourceType)
+    public static bool IsLuxuryResource(ResourceType resourceType)
     {
         switch (resourceType)
         {
@@ -73,7 +70,6 @@ public static bool IsLuxuryResource(ResourceType resourceType)
 
     public void AddResource(ResourceType resourceType, int numToAdd)
     {
-        
         switch (resourceType)
         {
             case ResourceType.Fish: numFish += numToAdd; break;
@@ -86,9 +82,8 @@ public static bool IsLuxuryResource(ResourceType resourceType)
             case ResourceType.Grain: numGrain += numToAdd; break;
             case ResourceType.Goods: numGoods += numToAdd; break;
             case ResourceType.Electronics: numElectronics += numToAdd; break;
-
         }
-        
+        UpdateUI();
     }
 
     public bool CanAffordResources(Dictionary<ResourceType, int> totalCosts)
@@ -117,7 +112,13 @@ public static bool IsLuxuryResource(ResourceType resourceType)
         Dictionary<ResourceType, int> totalCosts = new Dictionary<ResourceType, int>();
         foreach (ResourceCost cost in resourceCosts)
         {
-            totalCosts[cost.resourceType] += cost.value;
+            if (totalCosts.ContainsKey(cost.resourceType))
+            {
+                totalCosts[cost.resourceType] += cost.value;
+            } else
+            {
+                totalCosts.Add(cost.resourceType, cost.value);
+            }
         }
 
         // TODO: Improve this
@@ -139,6 +140,7 @@ public static bool IsLuxuryResource(ResourceType resourceType)
                 case ResourceType.Electronics: numElectronics -= entry.Value; break;
             }
         }
+        UpdateUI();
         return true;
     }
 }

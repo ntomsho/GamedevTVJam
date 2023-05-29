@@ -19,8 +19,9 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
 
-    [SerializeField] int harmonyGoal = 5000;
+    [SerializeField] int harmonyGoal = 2500;
     [SerializeField] CreditsHandler creditsHandler;
+    [SerializeField] GameObject inventoryObject;
     public bool gameIsPaused = false;
     public bool gameIsInBuildMode = false;
     public GameObject pauseMenuUI;
@@ -75,19 +76,20 @@ public class GameManager : MonoBehaviour
             if (gameIsPaused)
             {
                 pauseMenuUI.SetActive(false);
-
                 Resume();
+                inventoryObject.SetActive(gameIsPaused || gameIsInBuildMode);
             }
             else
             {
                 pauseMenuUI.SetActive(true);
-
                 Pause();
+                inventoryObject.SetActive(gameIsPaused || gameIsInBuildMode);
             }
         }
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             SetBuildMode(!gameIsInBuildMode);
+            inventoryObject.SetActive(gameIsPaused || gameIsInBuildMode);
         }
     }
 

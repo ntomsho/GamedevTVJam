@@ -15,4 +15,6 @@ public interface IInteractable
 
     // Highlight object and generate info popup when moused over;
     public void SetHighlight(bool value);
+
+    public bool GetIsQuestBuilding();
 }

@@ -6,14 +6,19 @@ public class Field : BaseInteractable, IDualObjectChild, IGrowOverTime
 {
     [SerializeField] Renderer objectRenderer;
     [SerializeField] DualObject dualObjectParent;
-    [SerializeField] List<Transform> spawnPoints;//
+    [SerializeField] List<Transform> spawnPoints;
     [SerializeField] Animation playerAnimation;
+    [SerializeField] SphereCollider waterCheckCollider;
     [SerializeField] GameObject cornPlantPrefab;
+    [SerializeField] GameObject grainPickupPrefab;
+    [SerializeField] GameObject fruitPickupPrefab;
+    [SerializeField] Transform resourceDropPosition;
+    [SerializeField] float timeToInteract = 2f;
     [SerializeField] float timeToGrow = 10f;
-    [SerializeField] int maxPlants = 6;
     float growthTimer = 0f;
     WorldType worldType = WorldType.Nature;
     [SerializeField] List<CornPlant> plantsList;
+    bool isNearWater;
 
     void Awake()
     {
@@ -22,15 +27,26 @@ public class Field : BaseInteractable, IDualObjectChild, IGrowOverTime
 
     void Start()
     {
+        CheckForWater();
         CreateNewPlant();
     }
 
     public override void Interact(CharacterInteraction character)
     {
-        return; //No interaction
+        Instantiate(isNearWater ? fruitPickupPrefab : grainPickupPrefab, resourceDropPosition.position, Quaternion.identity);
+        DestroyPlant(plantsList[0]);
     }
 
-    // TODO: Collision + event to determine if close to water
+    void CheckForWater()
+    {
+        GameObject water = GameObject.FindGameObjectWithTag("Water");
+        if (waterCheckCollider.bounds.Contains(water.transform.position))
+        {
+            isNearWater = true;
+            return;
+        }
+        isNearWater = false;
+    }
 
     public Renderer GetRenderer()
     {
@@ -39,16 +55,26 @@ public class Field : BaseInteractable, IDualObjectChild, IGrowOverTime
 
     void CreateNewPlant()
     {
-        // Get position;
-        int randomIndex = Random.Range(0 , spawnPoints.Count);//
-        Transform spawnPoint = spawnPoints[randomIndex];//
-        GameObject newPlantGameObject = Instantiate(cornPlantPrefab , spawnPoint.position , Quaternion.identity);//
+        Debug.Log("creating plant");
+        int spawnIndex = 0;
+        for (int i = 0; i < spawnPoints.Count; i++)
+        {
+            if (spawnPoints[i].childCount == 0)
+            {
+                spawnIndex = i;
+                break;
+            }
+        }
+
+        Transform spawnPoint = spawnPoints[spawnIndex];
+        GameObject newPlantGameObject = Instantiate(cornPlantPrefab , spawnPoint.position , Quaternion.identity, spawnPoint);//
         CornPlant newPlant = newPlantGameObject.GetComponent<CornPlant>();
         plantsList.Add(newPlant);
     }
 
     public void DestroyPlant(CornPlant plant)
     {
+        Destroy(plant.gameObject);
         plantsList.Remove(plant);
     }
 
@@ -60,29 +86,28 @@ public class Field : BaseInteractable, IDualObjectChild, IGrowOverTime
             if (currentPlant == null) return;
             if (currentPlant.GetIsGrown())
             {
-                
-                CreateNewPlant();//
+                CreateNewPlant();
             }
             else
             {
                 currentPlant.Grow();
             }
         }
+        growthTimer = 0f;
     }
 
     public bool GetIsGrown()
     {
+        foreach(CornPlant plant in plantsList)
+        {
+            if (plant.GetIsGrown()) return true;
+        }
         return false;
     }
 
     public override float GetTimeToInteract()
     {
-        return 0;
-    }
-
-    public override void SetHighlight(bool value)
-    {
-        return;
+        return timeToInteract;
     }
 
     public float GetTimeToGrow()

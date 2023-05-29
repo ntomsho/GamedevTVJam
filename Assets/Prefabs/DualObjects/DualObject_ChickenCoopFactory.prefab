@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2238829352797299996
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6564896043047177978}
+  - component: {fileID: 3044485097561369396}
+  m_Layer: 0
+  m_Name: ColliderContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6564896043047177978
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2238829352797299996}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6318155148527403516}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &3044485097561369396
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2238829352797299996}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 40
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &3262506075234123864
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -335,19 +380,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8029363732712814158}
   m_PrefabAsset: {fileID: 0}
---- !u!135 &3926580420467924180
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2970161204244125686}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 40
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6113003655415049340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,6 +415,7 @@ MonoBehaviour:
   objectRenderer: {fileID: 5281826694048542866}
   dualObjectParent: {fileID: 2414893924989976173}
   playerAnimation: {fileID: 0}
+  powerCheckCollider: {fileID: 3044485097561369396}
   goodsPickupPrefab: {fileID: 4887437847410736254, guid: e0969b43227994744b36a1aefa184de8,
     type: 3}
   electronicsPickupPrefab: {fileID: 4887437847410736254, guid: d53c382c5fa41c74faf6b19b50336b2a,
@@ -393,6 +426,12 @@ MonoBehaviour:
 --- !u!23 &5281826694048542866 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 2747994717465609948, guid: 70b6192701cc6bf43a3c86264d7ec614,
+    type: 3}
+  m_PrefabInstance: {fileID: 8029363732712814158}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6318155148527403516 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4089443730326058930, guid: 70b6192701cc6bf43a3c86264d7ec614,
     type: 3}
   m_PrefabInstance: {fileID: 8029363732712814158}
   m_PrefabAsset: {fileID: 0}
