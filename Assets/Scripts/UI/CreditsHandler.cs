@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class CreditsHandler : MonoBehaviour
 {
+    [SerializeField] GameObject winTextContainer;
     public void ActivateCredits()
     {
         gameObject.SetActive(true);
         // If game has been won, turn on winning display, effects
         if (GameIsWon())
         {
-            
+            winTextContainer.SetActive(true);
         }
     }
 
