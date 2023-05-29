@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private CharacterInteraction characterInteraction;
     [SerializeField] private CharacterController characterController;
     [SerializeField] private ThirdPersonController thirdPersonController;
+    [SerializeField] private GameObject playerFollowCamera;
 
     private InteractionController interactionController;
 
@@ -36,6 +37,7 @@ public class PlayerManager : MonoBehaviour
         characterInteraction.enabled= false;
         characterController.enabled = false;
         thirdPersonController.enabled = false;
+        playerFollowCamera.SetActive(false);
     }
 
     public void Resume()
@@ -43,7 +45,7 @@ public class PlayerManager : MonoBehaviour
         characterInteraction.enabled = true;
         characterController.enabled = true;
         thirdPersonController.enabled = true;
-
+        playerFollowCamera.SetActive(true);
     }
 }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraSwitcher : MonoBehaviour
 {
-    public GameObject player;
+    public PlayerManager player;
     public GameObject topDownCamera;
     public Camera playerCamera;
     public Camera topDowncamera;
@@ -25,7 +25,14 @@ public class CameraSwitcher : MonoBehaviour
         // topDowncamera.enabled = value;
         playerVCam.m_Priority = value ? 5 : 11;
 
-        player.SetActive(!value);
+        if (value)
+        {
+            player.Pause();
+        }
+        else
+        {
+            player.Resume();
+        }    
         topDownCamera.SetActive(value);
     }
 }
