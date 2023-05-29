@@ -6,14 +6,14 @@ public class Field : BaseInteractable, IDualObjectChild, IGrowOverTime
 {
     [SerializeField] Renderer objectRenderer;
     [SerializeField] DualObject dualObjectParent;
-
+    [SerializeField] List<Transform> spawnPoints;//
     [SerializeField] Animation playerAnimation;
     [SerializeField] GameObject cornPlantPrefab;
     [SerializeField] float timeToGrow = 10f;
     [SerializeField] int maxPlants = 6;
     float growthTimer = 0f;
     WorldType worldType = WorldType.Nature;
-    List<CornPlant> plantsList;
+    [SerializeField] List<CornPlant> plantsList;
 
     void Awake()
     {
@@ -40,7 +40,9 @@ public class Field : BaseInteractable, IDualObjectChild, IGrowOverTime
     void CreateNewPlant()
     {
         // Get position;
-        GameObject newPlantGameObject = Instantiate(cornPlantPrefab, transform.position, Quaternion.identity);
+        int randomIndex = Random.Range(0 , spawnPoints.Count);//
+        Transform spawnPoint = spawnPoints[randomIndex];//
+        GameObject newPlantGameObject = Instantiate(cornPlantPrefab , spawnPoint.position , Quaternion.identity);//
         CornPlant newPlant = newPlantGameObject.GetComponent<CornPlant>();
         plantsList.Add(newPlant);
     }
@@ -59,12 +61,13 @@ public class Field : BaseInteractable, IDualObjectChild, IGrowOverTime
             if (currentPlant.GetIsGrown())
             {
                 
+                CreateNewPlant();//
             }
             else
             {
                 currentPlant.Grow();
             }
-        }   
+        }
     }
 
     public bool GetIsGrown()
