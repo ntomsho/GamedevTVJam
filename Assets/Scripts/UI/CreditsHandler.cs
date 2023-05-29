@@ -7,10 +7,11 @@ public class CreditsHandler : MonoBehaviour
     public void ActivateCredits()
     {
         gameObject.SetActive(true);
+
         // If game has been won, turn on winning display, effects
         if (GameIsWon())
         {
-            
+            SoundManager.Instance.PlayCreditsSound(PlayerManager.Instance.transform.position);
         }
     }
 

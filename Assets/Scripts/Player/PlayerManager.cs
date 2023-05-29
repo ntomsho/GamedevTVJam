@@ -36,6 +36,7 @@ public class PlayerManager : MonoBehaviour
         characterInteraction.enabled= false;
         characterController.enabled = false;
         thirdPersonController.enabled = false;
+        interactionController.enabled = false;
     }
 
     public void Resume()
@@ -43,7 +44,7 @@ public class PlayerManager : MonoBehaviour
         characterInteraction.enabled = true;
         characterController.enabled = true;
         thirdPersonController.enabled = true;
-
+        interactionController.enabled= true;
     }
 }
 

@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ResourcePickup : MonoBehaviour
 {
+    public static event EventHandler OnAnyResourcePickup;
+
     [SerializeField] ParticleSystem particles;
     [SerializeField] ResourceType resourceType;
     [SerializeField] int resourceValue = 1;
@@ -15,6 +18,7 @@ public class ResourcePickup : MonoBehaviour
         if (collision.transform.name == "PlayerArmature" && !pickedUp) // TODO: Update this to final transform name for player object
         {
             pickedUp = true;
+
             StopParticles();
             StartCoroutine(TweenToPlayer(collision.transform));
         }
@@ -37,6 +41,8 @@ public class ResourcePickup : MonoBehaviour
             timeElapsed += Time.deltaTime;
             yield return null;
         }
+
+        OnAnyResourcePickup?.Invoke(this, EventArgs.Empty);
         playerTransform.parent.GetComponent<Inventory>().AddResource(resourceType, resourceValue);
         
         Destroy(gameObject);

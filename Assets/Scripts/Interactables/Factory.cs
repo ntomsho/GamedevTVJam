@@ -25,7 +25,7 @@ public class Factory : BaseInteractable, IDualObjectChild, IGrowOverTime
     {
         siliconCost = new ResourceCost[1] { new ResourceCost(ResourceType.Silicon, electronicsSiliconCost) };
         CheckForPower();
-        BuildingManager.OnBuildingPlaced += OnBuildingPlaced;
+        BuildingManager.OnAnyBuildingPlaced += OnBuildingPlaced;
     }
 
     void OnBuildingPlaced(object sender, EventArgs empty)

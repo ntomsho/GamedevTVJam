@@ -63,7 +63,6 @@ public class CharacterInteraction : MonoBehaviour
         {
             isInteracting = true;
 
-
             OnInteractionStarted?.Invoke(this, new OnInteractionStartedEventArgs() { interactionType = 1 });
 
             if (currentInteractable.GetTimeToInteract() == 0f) // Interact immediately
@@ -99,6 +98,8 @@ public class CharacterInteraction : MonoBehaviour
     {
         HandleInteraction();
         HandleInput();
+
+        if (Input.GetKeyDown(KeyCode.P)) { SoundManager.Instance.PlayFootstepSound(PlayerManager.Instance.transform.position, 1); }
     }
 
     private void HandleInteraction()

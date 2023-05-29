@@ -10,23 +10,41 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField] private AudioClipRefsSO audioClipRefsSO;
 
-    private float volume = 1f;
+    private AudioSource audioSource;
+    private float volume = 1.0f;
 
     private void Awake()
     {
         Instance = this;
-
-        volume = PlayerPrefs.GetFloat(PLAYER_PREFS_SOUND_EFFECTS_VOLUME, 1f);
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
     {
         PlayerManager.Instance.GetCharacterInteraction().OnInteractionStarted += SoundManager_OnInteractionStarted;
+        WorldSwap.Instance.OnWorldSwap += Instance_OnWorldSwap;
+        ResourcePickup.OnAnyResourcePickup += ResourcePickup_OnAnyResourcePickup;
+        BuildingManager.OnAnyBuildingPlaced += BuildingManager_OnAnyBuildingPlaced;
+    }
+
+    private void BuildingManager_OnAnyBuildingPlaced(object sender, System.EventArgs e)
+    {
+        PlaySound(audioClipRefsSO.buildPlaced, PlayerManager.Instance.transform.position);
+    }
+
+    private void ResourcePickup_OnAnyResourcePickup(object sender, System.EventArgs e)
+    {
+        PlaySound(audioClipRefsSO.playerItemGrab, PlayerManager.Instance.transform.position);
+    }
+
+    private void Instance_OnWorldSwap(object sender, System.EventArgs e)
+    {
+        PlaySound(audioClipRefsSO.portalSwitch, PlayerManager.Instance.transform.position);
     }
 
     private void SoundManager_OnInteractionStarted(object sender, CharacterInteraction.OnInteractionStartedEventArgs e)
     {
-        PlaySound(audioClipRefsSO.uiCrafting, transform.position);
+        PlaySound(audioClipRefsSO.uiCrafting[0], PlayerManager.Instance.transform.position);
     }
 
 
@@ -49,6 +67,11 @@ public class SoundManager : MonoBehaviour
     public void PlayFootstepSound(Vector3 position, float volumeMultiplier = 1f)
     {
         PlaySound(audioClipRefsSO.playerFootstep, position, volumeMultiplier * volume);
+
+    }
+    public void PlayCreditsSound(Vector3 position, float volumeMultiplier = 1f)
+    {
+        PlaySound(audioClipRefsSO.credits, position, volumeMultiplier * volume);
 
     }
 

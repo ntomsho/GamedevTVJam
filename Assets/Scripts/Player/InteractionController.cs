@@ -20,6 +20,7 @@ public class InteractionController : MonoBehaviour
 
     private void CharacterInteraction_OnInteractionStarted(object sender, CharacterInteraction.OnInteractionStartedEventArgs e)
     {
+        animator.SetInteger("InteractAction", e.interactionType);
         animator.SetTrigger("Interact");
     }
 

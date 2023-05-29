@@ -39,3 +39,4 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ef040d766601b7e4c958aa3a1061fc16, type: 3}
   - {fileID: 8300000, guid: 65944bd16d09a6f498389a1edda86114, type: 3}
   - {fileID: 8300000, guid: a117c0b1256bf7a498c9e52568ee1ef0, type: 3}
+  credits: {fileID: 8300000, guid: cd66303ea904f814c88fabd9ec6be0e0, type: 3}
