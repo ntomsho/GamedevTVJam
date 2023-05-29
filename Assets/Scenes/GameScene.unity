@@ -2242,6 +2242,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1569156053, guid: c8facf6914cffa148b383cc33f20ed92, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1563306394422310768, guid: c8facf6914cffa148b383cc33f20ed92,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2492,6 +2496,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 250059160}
+    - target: {fileID: 6997428158652077236, guid: c8facf6914cffa148b383cc33f20ed92,
+        type: 3}
+      propertyPath: m_text
+      value: https://laranja2.itch.io/
+      objectReference: {fileID: 0}
+    - target: {fileID: 8993295596607895928, guid: c8facf6914cffa148b383cc33f20ed92,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8facf6914cffa148b383cc33f20ed92, type: 3}
 --- !u!1 &1484224984 stripped
