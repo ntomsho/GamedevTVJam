@@ -94,11 +94,13 @@ public class CharacterInteraction : MonoBehaviour
         if (Physics.Raycast(playerTransform.position, cameraDirection, out hit, 3f, interactableLayer) && !isInteracting)
         {
             currentInteractable = hit.collider.gameObject.GetComponent<IInteractable>();
-            currentInteractable.SetHighlight(true);
-Debug.Log(currentInteractable);
-            interactableTooltip.transform.position = hit.point;
-            interactableTooltip.SetActive(true);
-            interactableTooltip.GetComponent<InteractableTooltipUI>().SetInteractable(currentInteractable);
+            if (currentInteractable != null)
+            {
+                currentInteractable.SetHighlight(true);
+                interactableTooltip.transform.position = hit.point;
+                interactableTooltip.SetActive(true);
+                interactableTooltip.GetComponent<InteractableTooltipUI>().SetInteractable(currentInteractable);
+            }
         }
         else if (!isInteracting)
         {

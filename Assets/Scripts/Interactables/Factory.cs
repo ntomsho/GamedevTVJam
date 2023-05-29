@@ -9,6 +9,7 @@ public class Factory : BaseInteractable, IDualObjectChild, IGrowOverTime
     [SerializeField] DualObject dualObjectParent;
 
     [SerializeField] Animation playerAnimation;
+    [SerializeField] SphereCollider powerCheckCollider;
     [SerializeField] GameObject goodsPickupPrefab;
     [SerializeField] GameObject electronicsPickupPrefab;
     [SerializeField] float timeToGrow = 15f;
@@ -35,11 +36,10 @@ public class Factory : BaseInteractable, IDualObjectChild, IGrowOverTime
 
     void CheckForPower()
     {
-        Collider boundsCollider = GetComponent<SphereCollider>();
         GameObject[] pylons = GameObject.FindGameObjectsWithTag("TreePylon");
         foreach (GameObject pylon in pylons)
         {
-            if (boundsCollider.bounds.Contains(pylon.transform.position))
+            if (powerCheckCollider.bounds.Contains(pylon.transform.position))
             {
                 isPowered = true;
                 return;

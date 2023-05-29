@@ -18,6 +18,7 @@ public class SelectManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!GameManager.Instance.gameIsInBuildMode) return;
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = topDownCamera.ScreenPointToRay(Input.mousePosition);

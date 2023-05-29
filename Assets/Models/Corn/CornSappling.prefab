@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3373228497905348667}
   - component: {fileID: 7892423941062007339}
   - component: {fileID: 8256985682065276286}
+  - component: {fileID: 8497518724523253192}
   m_Layer: 0
   m_Name: CornSappling
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7892423941062007339
 MeshFilter:
@@ -83,3 +84,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8497518724523253192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5476301472786524994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ba0ca5caa0b2544faaa018f669abad6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  growthLevel1: {fileID: 0}
+  growthLevel2: {fileID: 6384463558596190525, guid: ff6689aafa2c7a1499fdaca588f2d8cb,
+    type: 3}
+  growthLevel3: {fileID: 4385879196812537102, guid: c78d799bc5ce4ff4fb765d91296ab1f3,
+    type: 3}
+  timeToHarvest: 1.5
