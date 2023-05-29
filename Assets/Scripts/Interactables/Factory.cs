@@ -65,6 +65,7 @@ public class Factory : BaseInteractable, IDualObjectChild, IGrowOverTime
 
     void CreateGoods()
     {
+        SoundManager.Instance.PlayUICraftSound(PlayerManager.Instance.transform.position);
         numGoods--;
         Instantiate(goodsPickupPrefab, transform.position, Quaternion.identity);
     }

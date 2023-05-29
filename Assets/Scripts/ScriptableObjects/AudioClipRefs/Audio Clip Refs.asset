@@ -42,3 +42,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a117c0b1256bf7a498c9e52568ee1ef0, type: 3}
   playerItemGrab: {fileID: 8300000, guid: 3c8fd9bd18575784ea29196abb435bf8, type: 3}
   credits: {fileID: 8300000, guid: cd66303ea904f814c88fabd9ec6be0e0, type: 3}
+  quest1: {fileID: 8300000, guid: e886235a7ad170d4db255d9f9abfcf76, type: 3}
+  quest2: {fileID: 8300000, guid: 72eb5377fe8e72443b1b94bfcc25cbe0, type: 3}
+  quest3: {fileID: 8300000, guid: 07995000573be074db83d73ed9a62ee6, type: 3}

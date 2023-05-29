@@ -33,6 +33,8 @@ public class Field : BaseInteractable, IDualObjectChild, IGrowOverTime
 
     public override void Interact(CharacterInteraction character)
     {
+        SoundManager.Instance.PlayCraftSound(PlayerManager.Instance.transform.position);
+
         Instantiate(isNearWater ? fruitPickupPrefab : grainPickupPrefab, resourceDropPosition.position, Quaternion.identity);
         DestroyPlant(plantsList[0]);
     }

@@ -30,6 +30,9 @@ public class Extractor : BaseInteractable, IDualObjectChild, IGrowOverTime
     void Extract()
     {
         if (!GetIsGrown()) return;
+
+        SoundManager.Instance.PlayUICraftSound(PlayerManager.Instance.transform.position);
+
         GameObject steelPickup = Instantiate(steelPickupPrefab, transform.position, Quaternion.identity);
         // Shoot out the object to a random location nearby;
         amountOfSteel -= 1;

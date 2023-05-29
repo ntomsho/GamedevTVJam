@@ -32,6 +32,13 @@ public class SoundManager : MonoBehaviour
         BuildingManager.OnAnyTechSelected += BuildingManager_OnAnyTechSelected;
 
         GameManager.Instance.OnBuildModeChanged += Instance_OnBuildModeChanged;
+
+        DualObject.OnAnyDualObjectDestroyed += DualObject_OnAnyDualObjectDestroyed;
+    }
+
+    private void DualObject_OnAnyDualObjectDestroyed(object sender, System.EventArgs e)
+    {
+        PlaySound(audioClipRefsSO.buildRemove[0], PlayerManager.Instance.transform.position);
     }
 
     private void BuildingManager_OnAnyTechSelected(object sender, System.EventArgs e)
@@ -90,6 +97,18 @@ public class SoundManager : MonoBehaviour
 
     }
 
+
+    public void PlayUICraftSound(Vector3 position, float volumeMultiplier = 1f)
+    {
+        PlaySound(audioClipRefsSO.uiCrafting[0], position, volumeMultiplier * volume);
+
+    }
+
+    public void PlayCraftSound(Vector3 position, float volumeMultiplier = 1f)
+    {
+        PlaySound(audioClipRefsSO.playerCraft, position, volumeMultiplier * volume);
+
+    }
 
     public void ChangeVolume(float volumeChangeTo)
     {
