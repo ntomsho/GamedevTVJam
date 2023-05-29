@@ -21,7 +21,12 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
+        PlayerManager.Instance.GetCharacterInteraction().OnInteractionStarted += SoundManager_OnInteractionStarted;
+    }
 
+    private void SoundManager_OnInteractionStarted(object sender, CharacterInteraction.OnInteractionStartedEventArgs e)
+    {
+        PlaySound(audioClipRefsSO.uiCrafting, transform.position);
     }
 
 

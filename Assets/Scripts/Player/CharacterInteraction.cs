@@ -6,7 +6,16 @@ using System;
 
 public class CharacterInteraction : MonoBehaviour
 {
+    public event EventHandler<OnInteractionStartedEventArgs> OnInteractionStarted;
+    public event EventHandler OnInteractionCompleted;
+
+    public class OnInteractionStartedEventArgs : EventArgs
+    {
+        public int interactionType;
+    }
+
     [SerializeField] Transform playerTransform;
+    [SerializeField] Transform interactTransform;
     [SerializeField] ThirdPersonController playerController;
     [SerializeField] LayerMask interactableLayer;
 
@@ -53,10 +62,16 @@ public class CharacterInteraction : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && currentInteractable != null && canInteract)
         {
             isInteracting = true;
+
+
+            OnInteractionStarted?.Invoke(this, new OnInteractionStartedEventArgs() { interactionType = 1 });
+
             if (currentInteractable.GetTimeToInteract() == 0f) // Interact immediately
             {
                 currentInteractable.Interact(this); //validation?
                 isInteracting = false;
+
+                OnInteractionCompleted?.Invoke(this, EventArgs.Empty);
             } else // Start the timer
             {
                 isInteracting = true;
@@ -71,6 +86,8 @@ public class CharacterInteraction : MonoBehaviour
                 currentInteractable.Interact(this); //validation?
                 isInteracting = false;
                 interactionTimer = 0f;
+
+                OnInteractionCompleted?.Invoke(this, EventArgs.Empty);
             }
         } else
         {
@@ -88,10 +105,10 @@ public class CharacterInteraction : MonoBehaviour
     {
         Vector3 cameraDirection = Camera.main.transform.forward;
 
-        Debug.DrawRay(playerTransform.position, cameraDirection * 3f, Color.red);
+        Debug.DrawRay(interactTransform.position, cameraDirection * 3f, Color.red);
 
         RaycastHit hit;
-        if (Physics.Raycast(playerTransform.position, cameraDirection, out hit, 3f, interactableLayer) && !isInteracting)
+        if (Physics.Raycast(interactTransform.position, cameraDirection, out hit, 3f, interactableLayer) && !isInteracting)
         {
             currentInteractable = hit.collider.gameObject.GetComponent<IInteractable>();
             if (currentInteractable != null)
