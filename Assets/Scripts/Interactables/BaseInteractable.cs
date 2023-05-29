@@ -17,7 +17,11 @@ public abstract class BaseInteractable : MonoBehaviour, IInteractable
 
     public virtual void SetHighlight(bool value)
     {
-        highlightOutline.enabled = value;
+        if (highlightOutline != null)
+        {
+            highlightOutline.enabled = value;
+
+        }
     }
 
     public InteractableSO GetInteractableSO()

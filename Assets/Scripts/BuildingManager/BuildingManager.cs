@@ -77,21 +77,24 @@ public class BuildingManager : MonoBehaviour
 
     void CheckCanPlace()
     {
-        Dictionary<ResourceType, int> resourceCost = new Dictionary<ResourceType, int>();
-        foreach (ResourceCost cost in pendingBuildable.resourceCosts)
-        {
-            resourceCost.Add(cost.resourceType, cost.value);
+        if (pendingObject != null)
+        { 
+            Dictionary<ResourceType, int> resourceCost = new Dictionary<ResourceType, int>();
+            foreach (ResourceCost cost in pendingBuildable.resourceCosts)
+            {
+                resourceCost.Add(cost.resourceType, cost.value);
+            }
+
+            if (!playerInventory.CanAffordResources(resourceCost))
+            {
+                canPlace = false;
+                return;
+            }
+
+            //TODO: raycast to see if space is occuped;
+
+            canPlace = true;
         }
-
-        if (!playerInventory.CanAffordResources(resourceCost))
-        {
-            canPlace = false;
-            return;
-        }
-
-        //TODO: raycast to see if space is occuped;
-
-        canPlace = true;
     }
 
     private void FixedUpdate()
@@ -119,7 +122,7 @@ public class BuildingManager : MonoBehaviour
 
             OnAnyTechSelected?.Invoke(this, EventArgs.Empty);
         }
-        pendingObject = Instantiate(pendingBuildable.previewPrefab, buildablePosition, transform.rotation);
+        pendingObject = Instantiate(pendingBuildable.previewPrefab, buildablePosition, pendingBuildable.previewPrefab.transform.rotation);
         // SetSelected Event
     }
 
@@ -140,6 +143,8 @@ public class BuildingManager : MonoBehaviour
 
     private void PlaceObject()
     {
+        Quaternion newRotation = pendingObject.transform.rotation * pendingBuildable.previewPrefab.transform.rotation;
+
         if (pendingBuildable.Build(pendingObject.transform.position, pendingObject.transform.rotation, playerInventory))
         {
             Destroy(pendingObject);
