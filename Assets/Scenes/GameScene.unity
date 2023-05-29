@@ -366,8 +366,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   gridToggle: {fileID: 1484224985}
-  canBuildMaterial: {fileID: 0}
-  cantBuildMaterial: {fileID: 0}
+  canBuildMaterial: {fileID: 2100000, guid: 5d6bc5bfb0a56904785c8816c412c803, type: 2}
+  cantBuildMaterial: {fileID: 2100000, guid: 1ee225170477f8c4e9d03ae30e2c9b73, type: 2}
 --- !u!4 &250059162
 Transform:
   m_ObjectHideFlags: 0
