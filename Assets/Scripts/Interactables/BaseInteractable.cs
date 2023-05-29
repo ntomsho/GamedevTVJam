@@ -24,4 +24,9 @@ public abstract class BaseInteractable : MonoBehaviour, IInteractable
     {
         return interactableSO;
     }
+
+    public virtual bool GetIsQuestBuilding()
+    {
+        return false;
+    }
 }

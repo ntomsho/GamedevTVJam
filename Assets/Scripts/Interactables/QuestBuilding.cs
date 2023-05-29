@@ -76,6 +76,11 @@ public class QuestBuilding : BaseInteractable, IDualObjectChild
         return objectRenderer;
     }
 
+    public override bool GetIsQuestBuilding()
+    {
+        return true;
+    }
+
     void Update()
     {
         if (questIndicator != null)

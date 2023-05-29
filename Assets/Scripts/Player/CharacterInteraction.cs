@@ -61,20 +61,21 @@ public class CharacterInteraction : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && currentInteractable != null && canInteract)
         {
-            isInteracting = true;
+            SetIsInteracting(true);
 
+            bool isQuestInteraction = currentInteractable.GetIsQuestBuilding();
 
-            OnInteractionStarted?.Invoke(this, new OnInteractionStartedEventArgs() { interactionType = 1 });
+            OnInteractionStarted?.Invoke(this, new OnInteractionStartedEventArgs() { interactionType = isQuestInteraction ? 2 : 1 });
 
             if (currentInteractable.GetTimeToInteract() == 0f) // Interact immediately
             {
                 currentInteractable.Interact(this); //validation?
-                isInteracting = false;
+                SetIsInteracting(false);
 
                 OnInteractionCompleted?.Invoke(this, EventArgs.Empty);
             } else // Start the timer
             {
-                isInteracting = true;
+                SetIsInteracting(true);
             }
         }
 
@@ -84,14 +85,14 @@ public class CharacterInteraction : MonoBehaviour
             if (interactionTimer > currentInteractable.GetTimeToInteract())
             {
                 currentInteractable.Interact(this); //validation?
-                isInteracting = false;
+                SetIsInteracting(false);
                 interactionTimer = 0f;
 
                 OnInteractionCompleted?.Invoke(this, EventArgs.Empty);
             }
         } else
         {
-            isInteracting = false;
+            SetIsInteracting(false);
         }
     }
 
