@@ -35,16 +35,16 @@ public class WorldSwap : MonoBehaviour
             return;
         }
         Instance = this;
-
-        foreach (DualObject dualObject in FindObjectsByType<DualObject>(FindObjectsInactive.Exclude, FindObjectsSortMode.None))
-        {
-            AddToDualObjectsList(dualObject);
-        }
     }
     
     void Start()
     {
         volume.profile.TryGet(out bloom);
+
+        foreach (DualObject dualObject in FindObjectsByType<DualObject>(FindObjectsInactive.Exclude, FindObjectsSortMode.None))
+        {
+            AddToDualObjectsList(dualObject);
+        }
     }
 
     public void SwapWorld()

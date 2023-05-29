@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1029002452667345375}
   - component: {fileID: 2146479945199193845}
-  m_Layer: 0
+  - component: {fileID: 1502597282692742849}
+  m_Layer: 7
   m_Name: MiningSpot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,6 +53,20 @@ MonoBehaviour:
   playerAnimation: {fileID: 0}
   siliconPickupPrefab: {fileID: 4887437847410736254, guid: cb7326002e4b7974b9f02d8821702164,
     type: 3}
+--- !u!136 &1502597282692742849
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107373090183416190}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &364258782666881664
 GameObject:
   m_ObjectHideFlags: 0
@@ -63,7 +78,7 @@ GameObject:
   - component: {fileID: 8922997265003921005}
   - component: {fileID: 7158548709776209740}
   - component: {fileID: 2146479945199193846}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FishingSpot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +145,7 @@ GameObject:
   - component: {fileID: 4335804870758449040}
   - component: {fileID: 4730703512698972642}
   - component: {fileID: 3361946196154952122}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FishingSpotParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5072,7 +5087,7 @@ GameObject:
   - component: {fileID: 8204854423017924406}
   - component: {fileID: 4077337537908121422}
   - component: {fileID: 4781498567383886839}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MiningSpotParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}

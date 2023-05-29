@@ -19,6 +19,9 @@ GameObject:
   - component: {fileID: 870423244}
   - component: {fileID: 870423245}
   - component: {fileID: 870423246}
+  - component: {fileID: 45449833}
+  - component: {fileID: 45449832}
+  - component: {fileID: 45449831}
   m_Layer: 0
   m_Name: WaterBlock_50m
   m_TagString: Untagged
@@ -196,3 +199,42 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 41.619976, y: 2, z: 22.37545}
   m_Center: {x: -0.43190232, y: 0, z: -5.9310813}
+--- !u!65 &45449833
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507636620937791836}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 7.31}
+  m_Center: {x: -22.08, y: 0, z: 0.6}
+--- !u!65 &45449832
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507636620937791836}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 5.13}
+  m_Center: {x: -22.08, y: 0, z: -8.7}
+--- !u!65 &45449831
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507636620937791836}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.41, y: 2, z: 1.8}
+  m_Center: {x: 4.87, y: 0, z: 15.4}

@@ -55,9 +55,10 @@ public class Field : BaseInteractable, IDualObjectChild, IGrowOverTime
         if (plantsList != null && plantsList.Count > 0)
         {
             CornPlant currentPlant = plantsList[plantsList.Count - 1];
+            if (currentPlant == null) return;
             if (currentPlant.GetIsGrown())
             {
-
+                
             }
             else
             {

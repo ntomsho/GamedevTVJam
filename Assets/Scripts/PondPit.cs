@@ -9,6 +9,17 @@ public class PondPit : DualObject
     [SerializeField] ParticleSystem natureParticleSystem;
     [SerializeField] ParticleSystem techParticleSystem;
 
+    void Start()
+    {
+        SwapObjectOpacity(0f);
+    }
+
+    public override void SetGameObjectsActive()
+    {
+        natureWorldObject.SetActive(WorldSwap.Instance.GetIsInNatureWorld());
+        techWorldObject.SetActive(!WorldSwap.Instance.GetIsInNatureWorld());
+    }
+
     public override void SwapObjectOpacity(float materialChangeDuration)
     {
         ParticleSystem oldParticleSystem = WorldSwap.Instance.GetIsInNatureWorld() ? techParticleSystem : natureParticleSystem;
@@ -17,8 +28,7 @@ public class PondPit : DualObject
         oldParticleSystem.Stop();
         StartCoroutine(StartNewParticleSystem(newParticleSystem, materialChangeDuration));
 
-        natureWorldObject.SetActive(WorldSwap.Instance.GetIsInNatureWorld());
-        techWorldObject.SetActive(!WorldSwap.Instance.GetIsInNatureWorld());
+        SetGameObjectsActive();
     }
 
     IEnumerator StartNewParticleSystem(ParticleSystem newParticleSystem, float materialChangeDuration)

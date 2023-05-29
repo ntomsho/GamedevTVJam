@@ -72,7 +72,7 @@ public class DualObject : MonoBehaviour
         SetGameObjectsActive();
     }
 
-    public void SetGameObjectsActive()
+    public virtual void SetGameObjectsActive()
     {
         if (GetIsInNatureWorld())
         {
