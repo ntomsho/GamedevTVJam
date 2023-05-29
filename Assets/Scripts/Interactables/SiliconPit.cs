@@ -5,7 +5,7 @@ using UnityEngine;
 public class SiliconPit : BaseInteractable, IDualObjectChild
 {
     [SerializeField] Renderer objectRenderer;
-    [SerializeField] DualObject dualObjectParent;
+    [SerializeField] PondPit dualObjectParent;
 
     [SerializeField] Animation playerAnimation;
     [SerializeField] GameObject siliconPickupPrefab;
@@ -26,6 +26,11 @@ public class SiliconPit : BaseInteractable, IDualObjectChild
     void Mine()
     {
         Instantiate(siliconPickupPrefab, transform.position, Quaternion.identity);
+    }
+
+    Vector3 SiliconDropPosition(Transform playerTransform)
+    {
+        return (playerTransform.position - (playerTransform.position - transform.position).normalized);
     }
 
     public WorldType GetWorldType()

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Pond : BaseInteractable, IDualObjectChild
 {
     [SerializeField] Renderer objectRenderer;
-    [SerializeField] DualObject dualObjectParent;
+    [SerializeField] PondPit dualObjectParent;
 
     [SerializeField] Animation playerAnimation;
     [SerializeField] GameObject fishPickupPrefab;
@@ -14,18 +14,22 @@ public class Pond : BaseInteractable, IDualObjectChild
 
     public override void Interact(CharacterInteraction character)
     {
-        Fish();
+        Fish(character.transform);
     }
-
 
     public Renderer GetRenderer()
     {
         return objectRenderer;
     }
 
-    void Fish()
+    void Fish(Transform playerTransform)
     {
-        Instantiate(fishPickupPrefab, transform.position, Quaternion.identity);
+        Instantiate(fishPickupPrefab, FishDropPosition(playerTransform), Quaternion.identity);
+    }
+
+    Vector3 FishDropPosition(Transform playerTransform)
+    {
+        return (playerTransform.position - (playerTransform.position - transform.position).normalized);
     }
 
     public WorldType GetWorldType()

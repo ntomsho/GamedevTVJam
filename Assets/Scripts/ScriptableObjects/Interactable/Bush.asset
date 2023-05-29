@@ -16,5 +16,5 @@ MonoBehaviour:
   IsReadyDescription: A bush full of seeds to pick.
   IsNotReadyDescription: This bush hasn't grown seeds yet.
   MainActionName: Collect
-  SecondaryActionName: Destroy
+  SecondaryActionName: 
   TimeToInteract: 2

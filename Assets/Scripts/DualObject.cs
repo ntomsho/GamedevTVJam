@@ -7,8 +7,8 @@ public class DualObject : MonoBehaviour
     [SerializeField] GameObject natureWorldObjectContainer;
     [SerializeField] GameObject techWorldObjectContainer;
 
-    GameObject natureWorldObject;
-    GameObject techWorldObject;
+    protected GameObject natureWorldObject;
+    protected GameObject techWorldObject;
 
     Renderer natureWorldRenderer;
     Renderer techWorldRenderer;
@@ -41,7 +41,7 @@ public class DualObject : MonoBehaviour
         return techWorldObject;
     }
 
-    public void SwapObjectOpacity(float materialChangeDuration)
+    public virtual void SwapObjectOpacity(float materialChangeDuration)
     {
         natureWorldObject.SetActive(true);
         techWorldObject.SetActive(true);
