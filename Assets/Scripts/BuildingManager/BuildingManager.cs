@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 public class BuildingManager : MonoBehaviour
 {
-    public static event EventHandler OnBuildingPlaced;
+    public static event EventHandler OnAnyBuildingPlaced;
     [SerializeField] Inventory playerInventory;
     public GameObject[] objects;
     [SerializeField] public List<Buildable> buildablesListNature;
@@ -131,7 +131,7 @@ public class BuildingManager : MonoBehaviour
             Destroy(pendingObject);
             pendingObject = null;
             pendingBuildable = null;
-            OnBuildingPlaced?.Invoke(this, EventArgs.Empty);
+            OnAnyBuildingPlaced?.Invoke(this, EventArgs.Empty);
         } else
         {
             //Negative feedback

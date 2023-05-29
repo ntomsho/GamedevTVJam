@@ -24,7 +24,13 @@ public class SoundManager : MonoBehaviour
         PlayerManager.Instance.GetCharacterInteraction().OnInteractionStarted += SoundManager_OnInteractionStarted;
         WorldSwap.Instance.OnWorldSwap += Instance_OnWorldSwap;
         ResourcePickup.OnAnyResourcePickup += ResourcePickup_OnAnyResourcePickup;
-        BuildingManager.OnBuildingPlaced += BuildingManager_OnAnyBuildingPlaced;
+        BuildingManager.OnAnyBuildingPlaced += BuildingManager_OnAnyBuildingPlaced;
+        GameManager.Instance.OnBuildModeChanged += Instance_OnBuildModeChanged;
+    }
+
+    private void Instance_OnBuildModeChanged(object sender, bool e)
+    {
+        PlaySound(audioClipRefsSO.playerStateSwitch, PlayerManager.Instance.transform.position);
     }
 
     private void BuildingManager_OnAnyBuildingPlaced(object sender, System.EventArgs e)
