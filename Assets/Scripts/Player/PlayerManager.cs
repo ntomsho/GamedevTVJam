@@ -10,6 +10,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private CharacterController characterController;
     [SerializeField] private ThirdPersonController thirdPersonController;
 
+    private InteractionController interactionController;
+
     public static PlayerManager Instance { get; private set; }
 
     void Awake()
@@ -20,8 +22,14 @@ public class PlayerManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
+        interactionController = GetComponent<InteractionController>();
+
         Instance = this;
     }
+
+    public InteractionController GetInteractionController() { return interactionController; }
+    public CharacterInteraction GetCharacterInteraction() { return characterInteraction; }
 
     public void Pause()
     {

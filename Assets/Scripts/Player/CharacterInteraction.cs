@@ -6,6 +6,14 @@ using System;
 
 public class CharacterInteraction : MonoBehaviour
 {
+    public event EventHandler<OnInteractionStartedEventArgs> OnInteractionStarted;
+    public event EventHandler OnInteractionCompleted;
+
+    public class OnInteractionStartedEventArgs : EventArgs
+    {
+        public int interactionType;
+    }
+
     [SerializeField] Transform playerTransform;
     [SerializeField] Transform interactTransform;
     [SerializeField] ThirdPersonController playerController;
@@ -54,10 +62,16 @@ public class CharacterInteraction : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && currentInteractable != null && canInteract)
         {
             isInteracting = true;
+
+
+            OnInteractionStarted?.Invoke(this, new OnInteractionStartedEventArgs() { interactionType = 1 });
+
             if (currentInteractable.GetTimeToInteract() == 0f) // Interact immediately
             {
                 currentInteractable.Interact(this); //validation?
                 isInteracting = false;
+
+                OnInteractionCompleted?.Invoke(this, EventArgs.Empty);
             } else // Start the timer
             {
                 isInteracting = true;
@@ -72,6 +86,8 @@ public class CharacterInteraction : MonoBehaviour
                 currentInteractable.Interact(this); //validation?
                 isInteracting = false;
                 interactionTimer = 0f;
+
+                OnInteractionCompleted?.Invoke(this, EventArgs.Empty);
             }
         } else
         {
