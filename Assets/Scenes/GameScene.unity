@@ -361,6 +361,11 @@ PrefabInstance:
       propertyPath: pauseMenuUI
       value: 
       objectReference: {fileID: 581753623}
+    - target: {fileID: 6081833278874392585, guid: 6199cc3ecc76770409783ce0244e84a8,
+        type: 3}
+      propertyPath: inventoryObject
+      value: 
+      objectReference: {fileID: 1516248014}
     - target: {fileID: 6081833278874392586, guid: 6199cc3ecc76770409783ce0244e84a8,
         type: 3}
       propertyPath: m_RootOrder
@@ -1472,6 +1477,10 @@ PrefabInstance:
       propertyPath: creditsHandler
       value: 
       objectReference: {fileID: 304494107}
+    - target: {fileID: 1569156053, guid: c8facf6914cffa148b383cc33f20ed92, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1563306394422310768, guid: c8facf6914cffa148b383cc33f20ed92,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1905,13 +1914,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1516248014 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1569156053, guid: c8facf6914cffa148b383cc33f20ed92,
+    type: 3}
+  m_PrefabInstance: {fileID: 1484224983}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1569156055 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1569156055, guid: c8facf6914cffa148b383cc33f20ed92,
     type: 3}
   m_PrefabInstance: {fileID: 1484224983}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1516248014}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
