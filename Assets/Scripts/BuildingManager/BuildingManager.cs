@@ -77,6 +77,7 @@ public class BuildingManager : MonoBehaviour
 
     void CheckCanPlace()
     {
+        if (pendingObject == null) return;
         Dictionary<ResourceType, int> resourceCost = new Dictionary<ResourceType, int>();
         foreach (ResourceCost cost in pendingBuildable.resourceCosts)
         {

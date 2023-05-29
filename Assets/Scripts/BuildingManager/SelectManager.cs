@@ -49,7 +49,7 @@ public class SelectManager : MonoBehaviour
     }
     void Deselect()
     {
-        selectObject.GetComponent<Outline>().enabled = false;
+        // selectObject.GetComponent<Outline>().enabled = false;
         selectUI.SetActive(false);
         selectObject = null;
     }
