@@ -12,8 +12,6 @@ public class WorldSwap : MonoBehaviour
 
     public static WorldSwap Instance { get; private set; }
 
-    public event EventHandler OnWorldSwap;
-
     bool swapInProgress;
     bool isInNatureWorld = true;
     [SerializeField] Terrain terrain;
