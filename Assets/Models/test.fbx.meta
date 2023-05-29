@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 80f8a42865600a74b890eb9c77b7f976
+guid: a7db46a3f99fe1c4bb5523252e09bd85
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -80,12 +80,7 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton:
-    - name: FIXED_EYES_MC(Clone)
-      parentName: 
-      position: {x: -3.5527132e-16, y: 6.619827e-16, z: 0.0000000047683715}
-      rotation: {x: -0.000000037748947, y: -1.5777218e-30, z: 3.1554436e-30, w: 1}
-      scale: {x: 1, y: 1, z: 1}
+    skeleton: []
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -96,7 +91,7 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
