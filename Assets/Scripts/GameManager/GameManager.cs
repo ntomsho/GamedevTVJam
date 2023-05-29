@@ -19,7 +19,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
 
-
+    [SerializeField] int harmonyGoal = 5000;
+    [SerializeField] CreditsHandler creditsHandler;
     public bool gameIsPaused = false;
     public bool gameIsInBuildMode = false;
     public GameObject pauseMenuUI;
@@ -53,6 +54,17 @@ public class GameManager : MonoBehaviour
         techHarmony += techHarmonyToAdd;
 
         OnHarmonyChanged?.Invoke(this, new HarmonyPair(natureHarmony, techHarmony));
+
+        if (Mathf.Min(natureHarmony, techHarmony) >= harmonyGoal)
+        {
+            Pause();
+            creditsHandler.ActivateCredits();
+        }
+    }
+
+    public int GetHarmonyGoal()
+    {
+        return harmonyGoal;
     }
 
     // Update is called once per frame
@@ -81,8 +93,6 @@ public class GameManager : MonoBehaviour
 
     public void Resume()
     {
-
-        //crosshair.SetActive(true);
         Time.timeScale = 1f;
         Cursor.visible = false;
         gameIsPaused = false;
@@ -95,7 +105,6 @@ public class GameManager : MonoBehaviour
     public void Pause()
     {
         Cursor.visible = true;
-        //crosshair.SetActive(false);
         Time.timeScale = 0f;
         gameIsPaused = true;
 

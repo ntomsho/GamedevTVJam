@@ -67,6 +67,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DualObject_TreePylon Variant 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3339202774968721535, guid: 9f3a7732a4f5f8347b3054ce485b7fb5,
+        type: 3}
+      propertyPath: m_TagString
+      value: TreePylon
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f3a7732a4f5f8347b3054ce485b7fb5, type: 3}
 --- !u!114 &1327449106157012070 stripped

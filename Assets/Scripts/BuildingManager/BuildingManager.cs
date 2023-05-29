@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class BuildingManager : MonoBehaviour
 {
+    public static event EventHandler OnBuildingPlaced;
     [SerializeField] Inventory playerInventory;
     public GameObject[] objects;
     [SerializeField] public List<Buildable> buildablesListNature;
@@ -87,6 +89,7 @@ public class BuildingManager : MonoBehaviour
             //Destroy(pendingObject);
             pendingObject = null;
             pendingBuildable = null;
+            OnBuildingPlaced?.Invoke(this, EventArgs.Empty);
         } else
         {
             //Negative feedback

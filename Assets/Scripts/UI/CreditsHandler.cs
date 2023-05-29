@@ -8,6 +8,15 @@ public class CreditsHandler : MonoBehaviour
     {
         gameObject.SetActive(true);
         // If game has been won, turn on winning display, effects
+        if (GameIsWon())
+        {
+            
+        }
+    }
+
+    bool GameIsWon()
+    {
+        return Mathf.Min(GameManager.Instance.natureHarmony, GameManager.Instance.techHarmony) >= GameManager.Instance.GetHarmonyGoal();
     }
 
     void CloseCredits()

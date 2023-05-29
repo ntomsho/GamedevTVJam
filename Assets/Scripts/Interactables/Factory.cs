@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,10 +24,29 @@ public class Factory : BaseInteractable, IDualObjectChild, IGrowOverTime
     void Start()
     {
         siliconCost = new ResourceCost[1] { new ResourceCost(ResourceType.Silicon, electronicsSiliconCost) };
+        CheckForPower();
+        BuildingManager.OnBuildingPlaced += OnBuildingPlaced;
     }
 
-    // TODO: Collisions + events to determine if powered or not
+    void OnBuildingPlaced(object sender, EventArgs empty)
+    {
+        CheckForPower();
+    }
 
+    void CheckForPower()
+    {
+        Collider boundsCollider = GetComponent<SphereCollider>();
+        GameObject[] pylons = GameObject.FindGameObjectsWithTag("TreePylon");
+        foreach (GameObject pylon in pylons)
+        {
+            if (boundsCollider.bounds.Contains(pylon.transform.position))
+            {
+                isPowered = true;
+                return;
+            }
+        }
+        isPowered = false;
+    }
 
 
     public override void Interact(CharacterInteraction character)
@@ -82,7 +102,7 @@ public class Factory : BaseInteractable, IDualObjectChild, IGrowOverTime
 
     void Update()
     {
-        if (makingElectronics || numGoods < maxGoods)
+        if ((makingElectronics || numGoods < maxGoods) && isPowered)
         {
             growthTimer += Time.deltaTime;
             if (growthTimer >= timeToGrow)

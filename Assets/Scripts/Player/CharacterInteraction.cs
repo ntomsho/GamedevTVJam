@@ -95,7 +95,7 @@ public class CharacterInteraction : MonoBehaviour
         {
             currentInteractable = hit.collider.gameObject.GetComponent<IInteractable>();
             currentInteractable.SetHighlight(true);
-
+Debug.Log(currentInteractable);
             interactableTooltip.transform.position = hit.point;
             interactableTooltip.SetActive(true);
             interactableTooltip.GetComponent<InteractableTooltipUI>().SetInteractable(currentInteractable);
