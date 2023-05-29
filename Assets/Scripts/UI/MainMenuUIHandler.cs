@@ -14,12 +14,13 @@ public class MainMenuUIHandler : MonoBehaviour
         playButton.onClick.AddListener(StartGame);
         quitButton.onClick.AddListener(QuitGame);
 
-
         Time.timeScale = 1.0f;
     }
 
     private void StartGame()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         Loader.Load(Loader.Scene.GameScene);
     }
 

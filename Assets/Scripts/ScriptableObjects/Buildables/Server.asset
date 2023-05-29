@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourceCosts:
   - resourceType: 6
-    value: 2
+    value: 1
+  - resourceType: 3
+    value: 1
   worldType: 1
   dualObjectPrefab: {fileID: 6893103494168431247, guid: b44a0a33ddc723247ae5491cc1ae4fea,
     type: 3}
