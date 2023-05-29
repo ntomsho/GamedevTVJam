@@ -17,4 +17,4 @@ MonoBehaviour:
   IsNotReadyDescription: 
   MainActionName: Extract
   SecondaryActionName: Destroy
-  TimeToInteract: 2
+  TimeToInteract: 0

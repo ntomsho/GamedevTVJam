@@ -17,4 +17,4 @@ MonoBehaviour:
   IsNotReadyDescription: 
   MainActionName: Fish
   SecondaryActionName: 
-  TimeToInteract: 30
+  TimeToInteract: 1

@@ -7,12 +7,14 @@ public class PauseMenuUIHandler : MonoBehaviour
 {
     [SerializeField] private Button resumeButton;
     [SerializeField] private Button mainMenuButton;
-
+    [SerializeField] private Button creditsButton;
+    [SerializeField] private CreditsHandler creditsHandler;
 
     private void Start()
     {
         resumeButton.onClick.AddListener(ResumeGame);
         mainMenuButton.onClick.AddListener(MainMenu);
+        creditsButton.onClick.AddListener(Credits);
     }
 
     private void ResumeGame()
@@ -23,5 +25,11 @@ public class PauseMenuUIHandler : MonoBehaviour
     private void MainMenu()
     {
         Loader.Load(Loader.Scene.MainMenuScene);
+    }
+
+    private void Credits()
+    {
+        creditsHandler.ActivateCredits();
+        gameObject.SetActive(false);
     }
 }

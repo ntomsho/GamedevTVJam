@@ -17,4 +17,4 @@ MonoBehaviour:
   IsNotReadyDescription: This extractor has not produced steel yet.
   MainActionName: Harvest
   SecondaryActionName: Destroy
-  TimeToInteract: 0
+  TimeToInteract: 2
