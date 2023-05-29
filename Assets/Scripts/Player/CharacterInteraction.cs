@@ -7,6 +7,7 @@ using System;
 public class CharacterInteraction : MonoBehaviour
 {
     [SerializeField] Transform playerTransform;
+    [SerializeField] Transform interactTransform;
     [SerializeField] ThirdPersonController playerController;
     [SerializeField] LayerMask interactableLayer;
 
@@ -88,10 +89,10 @@ public class CharacterInteraction : MonoBehaviour
     {
         Vector3 cameraDirection = Camera.main.transform.forward;
 
-        Debug.DrawRay(playerTransform.position, cameraDirection * 3f, Color.red);
+        Debug.DrawRay(interactTransform.position, cameraDirection * 3f, Color.red);
 
         RaycastHit hit;
-        if (Physics.Raycast(playerTransform.position, cameraDirection, out hit, 3f, interactableLayer) && !isInteracting)
+        if (Physics.Raycast(interactTransform.position, cameraDirection, out hit, 3f, interactableLayer) && !isInteracting)
         {
             currentInteractable = hit.collider.gameObject.GetComponent<IInteractable>();
             currentInteractable.SetHighlight(true);

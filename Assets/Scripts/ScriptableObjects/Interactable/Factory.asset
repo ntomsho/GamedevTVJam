@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee18532ed0f62b04fb5a87346e20731d, type: 3}
   m_Name: Factory
   m_EditorClassIdentifier: 
-  Name: Field
+  Name: Factory
   IsReadyDescription: A factory that makes goods and electronics.
   IsNotReadyDescription: This factory is still manufacturing products.
   MainActionName: Manufacture
