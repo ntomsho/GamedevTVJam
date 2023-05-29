@@ -266,9 +266,12 @@ MonoBehaviour:
   - {fileID: 7314558465275046965, guid: 8246632e9e080fd4aab885c12aeca30a, type: 3}
   - {fileID: 6021307544116912023, guid: a8c931d0091cdc547a792311807f32e2, type: 3}
   buildablesListNature:
-  - {fileID: 11400000, guid: efe803ba302a87245b617e44b105a30b, type: 2}
+  - {fileID: 11400000, guid: d10400934f203374b8b007d1e74f2c54, type: 2}
+  - {fileID: 11400000, guid: efc8ca5bcbc14b14e93bfce3557589f7, type: 2}
   buildablesListTech:
-  - {fileID: 11400000, guid: 79bc0e055e144fb46b9df72284a007eb, type: 2}
+  - {fileID: 11400000, guid: 67af2fab7c568d04393617e7dc410314, type: 2}
+  - {fileID: 11400000, guid: d87b8931d17bdb74d85a4fda97a71037, type: 2}
+  - {fileID: 11400000, guid: 3ec0b8fdc80eec34e9194b59abf2e37c, type: 2}
   topDownCamera: {fileID: 331141540}
   rotateAmount: 45
   gridSize: 0.5
@@ -279,8 +282,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   gridToggle: {fileID: 1484224985}
-  materials: []
-  originalMaterial: {fileID: 0}
+  canBuildMaterial: {fileID: 2100000, guid: 5d6bc5bfb0a56904785c8816c412c803, type: 2}
+  cantBuildMaterial: {fileID: 2100000, guid: 1ee225170477f8c4e9d03ae30e2c9b73, type: 2}
 --- !u!4 &250059162
 Transform:
   m_ObjectHideFlags: 0
@@ -518,7 +521,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 1

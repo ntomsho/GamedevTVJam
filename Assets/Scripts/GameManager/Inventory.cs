@@ -12,7 +12,7 @@ public class Inventory : MonoBehaviour
 {
     public TextMeshProUGUI resources;
     int numFish;
-    int numSeeds;
+    int numSeeds = 3;
     int numGravel;
     int numSilicon;
     int numWood;
@@ -117,7 +117,13 @@ public static bool IsLuxuryResource(ResourceType resourceType)
         Dictionary<ResourceType, int> totalCosts = new Dictionary<ResourceType, int>();
         foreach (ResourceCost cost in resourceCosts)
         {
-            totalCosts[cost.resourceType] += cost.value;
+            if (totalCosts.ContainsKey(cost.resourceType))
+            {
+                totalCosts[cost.resourceType] += cost.value;
+            } else
+            {
+                totalCosts.Add(cost.resourceType, cost.value);
+            }
         }
 
         // TODO: Improve this

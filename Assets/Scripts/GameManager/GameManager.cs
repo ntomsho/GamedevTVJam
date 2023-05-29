@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
 
-    [SerializeField] int harmonyGoal = 5000;
+    [SerializeField] int harmonyGoal = 2500;
     [SerializeField] CreditsHandler creditsHandler;
     public bool gameIsPaused = false;
     public bool gameIsInBuildMode = false;

@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8be2c0e676f88a64ca907a6f1285535a, type: 3}
-  m_Name: Test 1
+  m_Name: Tree
   m_EditorClassIdentifier: 
-  resourceCosts: []
+  resourceCosts:
+  - resourceType: 1
+    value: 1
   worldType: 0
-  dualObjectPrefab: {fileID: 6893103494168431247, guid: 420c228a1e3537745961af90f398c073,
+  dualObjectPrefab: {fileID: 7802028736211677316, guid: cd0e1bf28feb8824ab75d5b7bb663fa7,
     type: 3}
-  previewPrefab: {fileID: 6893103494168431247, guid: 420c228a1e3537745961af90f398c073,
+  previewPrefab: {fileID: 1891495724138329258, guid: 81872bb44051c0843a2e444115598437,
     type: 3}

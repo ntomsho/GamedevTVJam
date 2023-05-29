@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8be2c0e676f88a64ca907a6f1285535a, type: 3}
+  m_Name: Factory
+  m_EditorClassIdentifier: 
+  resourceCosts:
+  - resourceType: 6
+    value: 1
+  worldType: 1
+  dualObjectPrefab: {fileID: 6893103494168431247, guid: fcfaac95259bd2d42876494659c2cc73,
+    type: 3}
+  previewPrefab: {fileID: 7163549222345302472, guid: 4146678a3be77b94ba3c3aa32650c8da,
+    type: 3}

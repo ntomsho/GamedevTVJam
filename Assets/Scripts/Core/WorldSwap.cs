@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,8 @@ using UnityEngine.Rendering.PostProcessing;
 public class WorldSwap : MonoBehaviour
 {
     public static WorldSwap Instance { get; private set; }
+
+    public event EventHandler OnWorldSwap;
 
     bool swapInProgress;
     bool isInNatureWorld = true;
@@ -54,6 +57,7 @@ public class WorldSwap : MonoBehaviour
         StartCoroutine(HandleBloom());
         SwapTerrainRendererMaterials();
         SwapDualObjects();
+        OnWorldSwap?.Invoke(this, EventArgs.Empty);
     }
 
     IEnumerator HandleBloom()

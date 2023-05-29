@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,12 @@ public class BuildModeUI : MonoBehaviour
     void Start()
     {
         GameManager.Instance.OnBuildModeChanged += UpdateBuildMode;
+        WorldSwap.Instance.OnWorldSwap += OnWorldSwap;
+    }
+
+    void OnWorldSwap(object sender, EventArgs e)
+    {
+        EnableUI(WorldSwap.Instance.GetIsInNatureWorld());
     }
 
     void UpdateBuildMode(object sender, bool value)
@@ -34,10 +41,14 @@ public class BuildModeUI : MonoBehaviour
         {
             natureCanvasGroup.alpha = 1;
             techCanvasGroup.alpha = 0;
+            natureCanvasGroup.gameObject.SetActive(true);
+            techCanvasGroup.gameObject.SetActive(false);
         } else
         {
             natureCanvasGroup.alpha = 0;
             techCanvasGroup.alpha = 1;
+            natureCanvasGroup.gameObject.SetActive(false);
+            techCanvasGroup.gameObject.SetActive(true);
         }
     }
 
@@ -45,5 +56,7 @@ public class BuildModeUI : MonoBehaviour
     {
         natureCanvasGroup.alpha = 0;
         techCanvasGroup.alpha = 0;
+        natureCanvasGroup.gameObject.SetActive(false);
+        techCanvasGroup.gameObject.SetActive(false);
     }
 }

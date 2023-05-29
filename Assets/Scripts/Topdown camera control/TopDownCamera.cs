@@ -27,8 +27,8 @@ public class TopDownCamera : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
 
         Vector3 newPosition = transform.position;
-        newPosition.x += horizontalInput;
-        newPosition.z += verticalInput;
+        newPosition.x += horizontalInput * 0.25f;
+        newPosition.z += verticalInput * 0.25f;
 
         newPosition.x = Mathf.Clamp(newPosition.x , -xLimitMinus , xLimit);
         newPosition.z = Mathf.Clamp(newPosition.z , -yLimitMinus , yLimit);
