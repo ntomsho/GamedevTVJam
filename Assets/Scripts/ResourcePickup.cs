@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ResourcePickup : MonoBehaviour
 {
+    public static event EventHandler OnAnyResourcePickup;
     [SerializeField] ParticleSystem particles;
     [SerializeField] ResourceType resourceType;
     [SerializeField] int resourceValue = 1;
@@ -38,7 +40,9 @@ public class ResourcePickup : MonoBehaviour
             yield return null;
         }
         playerTransform.parent.GetComponent<Inventory>().AddResource(resourceType, resourceValue);
-        
+
+        OnAnyResourcePickup?.Invoke(this, EventArgs.Empty);
+
         Destroy(gameObject);
     }
 }

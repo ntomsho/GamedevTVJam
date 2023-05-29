@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DualObject : MonoBehaviour
 {
+    public  event EventHandler OnDualObjectDestroyed;
+
     [SerializeField] GameObject natureWorldObjectContainer;
     [SerializeField] GameObject techWorldObjectContainer;
 
@@ -91,6 +94,7 @@ public class DualObject : MonoBehaviour
 
     public void DestroyDualObject()
     {
+        OnDualObjectDestroyed?.Invoke(this, EventArgs.Empty);
         // Manage changes to harmony;
         // Play destroy animation;
         Destroy(gameObject);

@@ -29,6 +29,7 @@ MonoBehaviour:
   buildRemove:
   - {fileID: 8300000, guid: 8e01388d81ba4f74a83be7e96a30ade7, type: 3}
   - {fileID: 8300000, guid: 686363adf6e923f449b559683ed3e291, type: 3}
+  buildPlaced: {fileID: 8300000, guid: 88e281a2b3912af46a1d47d0b2c758b6, type: 3}
   portalSwitch: {fileID: 8300000, guid: 2a74821e6ace54042bafc27e781a6961, type: 3}
   playerCraft: {fileID: 8300000, guid: a5ae8f09eaeb8764da03a45bd7b14d8e, type: 3}
   playerStateSwitch: {fileID: 8300000, guid: 7aa1397dafde36941abf80bcd7dcb8bf, type: 3}
@@ -39,3 +40,5 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ef040d766601b7e4c958aa3a1061fc16, type: 3}
   - {fileID: 8300000, guid: 65944bd16d09a6f498389a1edda86114, type: 3}
   - {fileID: 8300000, guid: a117c0b1256bf7a498c9e52568ee1ef0, type: 3}
+  playerItemGrab: {fileID: 8300000, guid: 3c8fd9bd18575784ea29196abb435bf8, type: 3}
+  credits: {fileID: 8300000, guid: cd66303ea904f814c88fabd9ec6be0e0, type: 3}

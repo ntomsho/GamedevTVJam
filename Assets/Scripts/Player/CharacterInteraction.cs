@@ -88,6 +88,8 @@ public class CharacterInteraction : MonoBehaviour
                 SetIsInteracting(false);
                 interactionTimer = 0f;
 
+                interactableTooltip.SetActive(false);
+
                 OnInteractionCompleted?.Invoke(this, EventArgs.Empty);
             }
         } else
