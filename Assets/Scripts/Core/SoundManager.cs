@@ -22,10 +22,26 @@ public class SoundManager : MonoBehaviour
     private void Start()
     {
         PlayerManager.Instance.GetCharacterInteraction().OnInteractionStarted += SoundManager_OnInteractionStarted;
+        
         WorldSwap.Instance.OnWorldSwap += Instance_OnWorldSwap;
+        
         ResourcePickup.OnAnyResourcePickup += ResourcePickup_OnAnyResourcePickup;
+        
         BuildingManager.OnAnyBuildingPlaced += BuildingManager_OnAnyBuildingPlaced;
+        BuildingManager.OnAnyNatureSelected += BuildingManager_OnAnyNatureSelected;
+        BuildingManager.OnAnyTechSelected += BuildingManager_OnAnyTechSelected;
+
         GameManager.Instance.OnBuildModeChanged += Instance_OnBuildModeChanged;
+    }
+
+    private void BuildingManager_OnAnyTechSelected(object sender, System.EventArgs e)
+    {
+        PlaySound(audioClipRefsSO.uiClick[1], PlayerManager.Instance.transform.position);
+    }
+
+    private void BuildingManager_OnAnyNatureSelected(object sender, System.EventArgs e)
+    {
+        PlaySound(audioClipRefsSO.uiClick[0], PlayerManager.Instance.transform.position);
     }
 
     private void Instance_OnBuildModeChanged(object sender, bool e)
@@ -53,15 +69,8 @@ public class SoundManager : MonoBehaviour
         PlaySound(audioClipRefsSO.uiCrafting[0], PlayerManager.Instance.transform.position);
     }
 
-
-    //private void DeliveryManager_OnWaitingRecipeSuccess(object sender, System.EventArgs e)
-    //{
-    //    DeliveryCounter deliveryCounter = DeliveryCounter.Instance;
-    //    PlaySound(audioClipRefsSO.deliverySuccess, deliveryCounter.transform.position);
-    //}
-
     private void PlaySound(AudioClip audioClip, Vector3 position, float volumeMultiplier = 1f)
-    {
+    {        
         AudioSource.PlayClipAtPoint(audioClip, position, volumeMultiplier * volume);
     }
 
@@ -81,18 +90,6 @@ public class SoundManager : MonoBehaviour
 
     }
 
-    //public void PlayCountdownSound()
-    //{
-    //    PlaySound(audioClipRefsSO.warning, Vector3.zero);
-
-    //}
-
-
-    //public void PlayWarningSound(Vector3 position)
-    //{
-    //    PlaySound(audioClipRefsSO.warning, position);
-
-    //}
 
     public void ChangeVolume(float volumeChangeTo)
     {

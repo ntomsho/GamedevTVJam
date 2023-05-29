@@ -7,6 +7,9 @@ using UnityEngine.EventSystems;
 public class BuildingManager : MonoBehaviour
 {
     public static event EventHandler OnAnyBuildingPlaced;
+    public static event EventHandler OnAnyNatureSelected;
+    public static event EventHandler OnAnyTechSelected;
+
     [SerializeField] Inventory playerInventory;
     public GameObject[] objects;
     [SerializeField] public List<Buildable> buildablesListNature;
@@ -104,7 +107,18 @@ public class BuildingManager : MonoBehaviour
     public void SelectObject(int index)
     {
         ClearSelection();
-        pendingBuildable = WorldSwap.Instance.GetIsInNatureWorld() ? buildablesListNature[index] : buildablesListTech[index];
+        if (WorldSwap.Instance.GetIsInNatureWorld())
+        {
+            pendingBuildable =  buildablesListNature[index];
+
+            OnAnyNatureSelected?.Invoke(this,EventArgs.Empty);
+        }
+        else
+        {
+            pendingBuildable = buildablesListTech[index];
+
+            OnAnyTechSelected?.Invoke(this, EventArgs.Empty);
+        }
         pendingObject = Instantiate(pendingBuildable.previewPrefab, buildablePosition, transform.rotation);
         // SetSelected Event
     }
